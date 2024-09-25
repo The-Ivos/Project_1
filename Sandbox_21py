@@ -9,7 +9,7 @@ Bulbasaur = {"name": "BULBASAUR",
                 "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
                 "second" : {"vine whip" : {"name": "VINE WHIP", "power": 4, "acc": 4, "stc": "OK","type": "grass"}},
                 "third" : {"poison powder" : {"name": "POISON POWDER", "power": 0, "acc": 3, "stc": "PSN","type": "grass"}},
-                "fourth" : {"razor leaf" : {"name": "RAZOR LEAF", "power": 7, "acc": 2, "stc": "PSN","type": "grass"}}
+                "fourth" : {"razor leaf" : {"name": "RAZOR LEAF", "power": 7, "acc": 2, "stc": "OK","type": "grass"}}
                 },
             "HP": 29,
             "status": "OK"}
@@ -37,7 +37,7 @@ Charmander = {"name": "CHARMANDER",
             "status": "OK"}
 
 myPokemon = Bulbasaur
-foePokemon = Squirtle
+foePokemon = Charmander
 
 cont = "Press ENTER to continue..."
 
@@ -147,6 +147,7 @@ def attackon(a,b):
         foePokemon.update({"HP" : foePokemon["HP"] - a["first"][b]["power"]})
      else:
         print(myPokemon["name"],"attack missed!")
+        print("")
         print(input("Press ENTER to continue..."))
     elif b in a["second"]:
      effic(foePokemon["type"],a["second"][b]["type"])
@@ -171,6 +172,7 @@ def attackon(a,b):
         foePokemon.update({"HP" : foePokemon["HP"] - a["second"][b]["power"]})
      else:
         print(myPokemon["name"],"attack missed!")
+        print("")
         print(input("Press ENTER to continue..."))
     elif b in a["third"]:
      effic(foePokemon["type"],a["third"][b]["type"])
@@ -195,6 +197,7 @@ def attackon(a,b):
         foePokemon.update({"HP" : foePokemon["HP"] - a["third"][b]["power"]})
      else:
         print(myPokemon["name"],"attack missed!")
+        print("")
         print(input("Press ENTER to continue..."))
     elif b in a["fourth"]:
      effic(foePokemon["type"],a["fourth"][b]["type"])
@@ -219,6 +222,7 @@ def attackon(a,b):
         foePokemon.update({"HP" : foePokemon["HP"] - a["fourth"][b]["power"]})
      else:
         print(myPokemon["name"],"attack missed!")
+        print("")
         print(input("Press ENTER to continue..."))
        
     main_screen()     
