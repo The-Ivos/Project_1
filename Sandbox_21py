@@ -4,16 +4,18 @@ import os
 os.system('cls')
 
 Squirtle = {"name": "SQUIRTLE",
+            "type": "water",
             "attacks": {
                 "first" : {"tackle" : {"power": 3, "acc": 5, "stc": "none"}}, 
                 "second" : {"bubble" : {"power": 4, "acc":4, "stc": "none"}},
-                "third" : {"water gun" : {"power": 6, "acc": 3, "stc": "none"}},
-                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 2, "stc": "PSN"}}
+                "third" : {"water gun" : {"name": "WATER GUN", "power": 5, "acc": 4, "stc": "OK","type": "water"}},
+                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 3, "stc": "PSN","type": "water"}}
                 },
             "HP": 25,
             "status": "OK"}
 
 Charmander = {"name": "CHARMANDER",
+            "type": "fire",
             "attacks": {
                 "first" : {"tackle" : {"power": 3, "acc": 5, "stc": "none"}}, 
                 "second" : {"bubble" : {"power": 4, "acc":4, "stc": "none"}},
@@ -42,6 +44,17 @@ def endgame():
 
 
 """)
+   
+
+eff = 1
+   
+def effic(a,b):
+   global eff
+   if a == "fire" and b == "water":
+      eff = 2
+   if a == "flying" and b == "ground":
+      eff = 0
+   return eff
 
 def main_screen():
     os.system('cls')
@@ -96,21 +109,54 @@ def attackon(a,b):
     if b in a["first"]:
      print(b,"is in first")
      print(a["first"][b])
+     effic(foePokemon["type"],a["first"][b]["type"])
     elif b in a["second"]:
      print(b,"is in second")
      print(a["second"][b])
+     effic(foePokemon["type"],a["second"][b]["type"])
     elif b in a["third"]:
-     print(b,"is in third")
-     print(a["third"][b])
+     effic(foePokemon["type"],a["third"][b]["type"])
+     accuracy = a["third"][b]["acc"] + random.randint(1,6)
+     if accuracy >= 7 and foePokemon["status"] == "OK":
+        print(myPokemon["name"], "used", a["third"][b]["name"],"!")
+        if eff == 2:
+           print("It's supper effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        print("")
+        print(input("Press ENTER to continue..."))
+        foePokemon.update({"HP" : (foePokemon["HP"] - (a["third"][b]["power"])*eff)})
+        if eff != 0:
+            foePokemon.update({"status" : a["third"][b]["stc"]})
+     elif accuracy >= 7:
+        print(myPokemon["name"], "used", a["third"][b]["name"],"!")
+        if eff == 2:
+           print("Its supper effective!")
+        print("")
+        print(input("Press ENTER to continue..."))
+        foePokemon.update({"HP" : foePokemon["HP"] - a["third"][b]["power"]})
+     else:
+        print(myPokemon["name"],"attack missed!")
+        print(input("Press ENTER to continue..."))
     elif b in a["fourth"]:
+     effic(foePokemon["type"],a["fourth"][b]["type"])
      accuracy = a["fourth"][b]["acc"] + random.randint(1,6)
      if accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
+        if eff == 2:
+           print("It's supper effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : foePokemon["HP"] - a["fourth"][b]["power"]})
-        foePokemon.update({"status" : a["fourth"][b]["stc"]})
+        foePokemon.update({"HP" : (foePokemon["HP"] - (a["fourth"][b]["power"])*eff)})
+        if eff != 0:
+            foePokemon.update({"status" : a["fourth"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
+        if eff == 2:
+           print("Its supper effective!")
+        print("")
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : foePokemon["HP"] - a["fourth"][b]["power"]})
      else:
