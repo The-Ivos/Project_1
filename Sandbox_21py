@@ -85,7 +85,10 @@ def foeAttack():
        print("")
        print(input(cont))
        foePokemon.update({"HP" : foePokemon["HP"] - 2})
-       os.system('cls')
+   os.system('cls')   
+   if foePokemon["HP"] <= 0 or myPokemon["HP"] <= 0:
+      endgame()
+      exit()    
    print("=" * 35)
    print(myPokemon["name"] + "  HP: " + str(myPokemon["HP"]) + "   status: " + myPokemon["status"])
    print(foePokemon["name"]+ "  HP: " + str(foePokemon["HP"]) + "   status: " + foePokemon["status"])
@@ -96,6 +99,7 @@ def foeAttack():
    print(input(cont))
    os.system('cls')
    foeAttackNum = random.randint(1,len(foePokemon["attacks"].keys()))
+   global eff
    if foeAttackNum == 1:
     # print(foePokemon["name"],"used",str(foePokemon["attacks"]["first"]).replace("'","").replace("{","").replace("}","").split()[2].replace(",","!"))
     foeAtt = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[5]
@@ -130,6 +134,7 @@ def foeAttack():
         print(input("Press ENTER to continue..."))
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*eff)})
     else:
+        print(foePokemon["name"],"used",foeAtt,"! But...")
         print(foePokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
@@ -168,6 +173,7 @@ def foeAttack():
         print(input("Press ENTER to continue..."))
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*eff)})
     else:
+        print(foePokemon["name"],"used",foeAtt,"! But...")
         print(foePokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
@@ -205,6 +211,7 @@ def foeAttack():
         print(input("Press ENTER to continue..."))
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*eff)})
     else:
+        print(foePokemon["name"],"used",foeAtt,"! But...")
         print(foePokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
@@ -245,6 +252,7 @@ def foeAttack():
         print(foePokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
+    eff = 1
    main_screen()
   
 
@@ -313,7 +321,6 @@ def main_screen():
     if foePokemon["HP"] <= 0 or myPokemon["HP"] <= 0:
        endgame()
        exit()    
-    global onTurn
     # print(len(myPokemon["attacks"].keys()))
     print("=" * 35)
     print(myPokemon["name"] + "  HP: " + str(myPokemon["HP"]) + "   status: " + myPokemon["status"])
@@ -373,7 +380,6 @@ def attackon(a,b):
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : int((foePokemon["HP"] - (a["first"][b]["power"])*eff))})
      else:
-        print(myPokemon["name"], "used", a["first"][b]["name"],"! but...")
         print(myPokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
@@ -405,7 +411,6 @@ def attackon(a,b):
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : int(foePokemon["HP"] - (a["second"][b]["power"])*eff)})
      else:
-        print(myPokemon["name"], "used", a["first"][b]["name"],"! but...")
         print(myPokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
@@ -437,7 +442,6 @@ def attackon(a,b):
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : int(foePokemon["HP"] - (a["third"][b]["power"])*eff)})
      else:
-        print(myPokemon["name"], "used", a["first"][b]["name"],"! but...")
         print(myPokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
@@ -469,7 +473,6 @@ def attackon(a,b):
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : int(foePokemon["HP"] - (a["fourth"][b]["power"])*eff)})
      else:
-        print(myPokemon["name"], "used", a["first"][b]["name"],"! but...")
         print(myPokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
