@@ -1,0 +1,124 @@
+import random
+import os
+
+os.system('cls')
+
+Squirtle = {"name": "SQUIRTLE",
+            "attacks": {
+                "first" : {"tackle" : {"power": 3, "acc": 5, "stc": "none"}}, 
+                "second" : {"bubble" : {"power": 4, "acc":4, "stc": "none"}},
+                "third" : {"water gun" : {"power": 6, "acc": 3, "stc": "none"}},
+                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 2, "stc": "PSN"}}
+                },
+            "HP": 25,
+            "status": "OK"}
+
+Charmander = {"name": "CHARMANDER",
+            "attacks": {
+                "first" : {"tackle" : {"power": 3, "acc": 5, "stc": "none"}}, 
+                "second" : {"bubble" : {"power": 4, "acc":4, "stc": "none"}},
+                "third" : {"water gun" : {"power": 6, "acc": 3, "stc": "none"}},
+                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 2, "stc": "none"}}
+                },
+            "HP": 28,
+            "status": "OK"}
+
+myPokemon = Squirtle
+foePokemon = Charmander
+
+cont = "Press ENTER to continue..."
+
+onTurn = myPokemon
+
+def endgame():
+   print("""
+
+
+""")
+   print("=" * 45)
+   print(foePokemon["name"],"fainted.",myPokemon["name"],"wins the battle!")
+   print("=" * 45)
+   print("""
+
+
+""")
+
+def main_screen():
+    os.system('cls')
+    if myPokemon["status"] == "PSN":
+       print(myPokemon["name"],"is hurt by poison!")
+       print(input(cont))
+       myPokemon.update({"HP" : myPokemon["HP"] -2})
+       print(input(cont))
+       os.system('cls')
+    if foePokemon["status"] == "PSN":
+       print(foePokemon["name"],"is hurt by poison!")
+       print(input(cont))
+       foePokemon.update({"HP" : foePokemon["HP"] - 2})
+       print(cont)
+       os.system('cls')
+    if foePokemon["HP"] <= 0:
+       endgame()
+       exit()    
+    global onTurn
+    # print(len(myPokemon["attacks"].keys()))
+    print("=" * 35)
+    print(myPokemon["name"] + "  HP: " + str(myPokemon["HP"]) + "   status: " + myPokemon["status"])
+    print(foePokemon["name"]+ "  HP: " + str(foePokemon["HP"]) + "   status: " + foePokemon["status"])
+    print("=" * 35)
+    if onTurn == myPokemon:
+        myPokemon_attack()
+
+def myPokemon_attack():
+    global onTurn
+    print("What do you want",myPokemon["name"],"to do? ")
+    print("")
+    attacks_count = len(myPokemon["attacks"].keys())
+    if attacks_count == 4:
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["third"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["fourth"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+    elif attacks_count == 3:
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["third"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+    elif attacks_count == 2:
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+    else:
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+    print("")
+    attackon(myPokemon["attacks"],input("Choose an attack! "))
+
+def attackon(a,b):
+    os.system('cls')
+    if b in a["first"]:
+     print(b,"is in first")
+     print(a["first"][b])
+    elif b in a["second"]:
+     print(b,"is in second")
+     print(a["second"][b])
+    elif b in a["third"]:
+     print(b,"is in third")
+     print(a["third"][b])
+    elif b in a["fourth"]:
+     accuracy = a["fourth"][b]["acc"] + random.randint(1,6)
+     if accuracy >= 7 and foePokemon["status"] == "OK":
+        print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
+        print(input("Press ENTER to continue..."))
+        foePokemon.update({"HP" : foePokemon["HP"] - a["fourth"][b]["power"]})
+        foePokemon.update({"status" : a["fourth"][b]["stc"]})
+     elif accuracy >= 7:
+        print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
+        print(input("Press ENTER to continue..."))
+        foePokemon.update({"HP" : foePokemon["HP"] - a["fourth"][b]["power"]})
+     else:
+        print(myPokemon["name"],"attack missed!")
+        print(input("Press ENTER to continue..."))
+        
+    main_screen()     
+
+# print(myPokemon["attacks"]["bubble"])
+main_screen()
+
