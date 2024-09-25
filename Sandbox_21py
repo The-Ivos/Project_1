@@ -20,7 +20,29 @@ Squirtle = {"name": "SQUIRTLE",
                 "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
                 "second" : {"bubble" : {"name": "BUBBLE", "power": 4, "acc": 4, "stc": "OK","type": "water"}},
                 "third" : {"water gun" : {"name": "WATER GUN", "power": 5, "acc": 3, "stc": "OK","type": "water"}},
-                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 2, "stc": "PSN","type": "water"}}
+                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 2, "stc": "OK","type": "water"}}
+                },
+            "HP": 25,
+            "status": "OK"}
+
+Pidgey = {"name": "PIDGEY",
+            "type": "flying",
+            "attacks": {
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
+                "second" : {"bubble" : {"name": "BUBBLE", "power": 4, "acc": 4, "stc": "OK","type": "water"}},
+                "third" : {"water gun" : {"name": "WATER GUN", "power": 5, "acc": 3, "stc": "OK","type": "water"}},
+                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 2, "stc": "OK","type": "water"}}
+                },
+            "HP": 21,
+            "status": "OK"}
+
+Pikachu = {"name": "PIKACHU",
+            "type": "electric",
+            "attacks": {
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
+                "second" : {"thundershock" : {"name": "THUNDERSHOCK", "power": 4, "acc": 4, "stc": "OK","type": "electric"}},
+                "third" : {"earthquake" : {"name": "EARTHQUAKE", "power": 5, "acc": 3, "stc": "OK","type": "ground"}},
+                "fourth" : {"toxic" : {"name": "TOXIC", "power": 3, "acc": 4, "stc": "PSN","type": "poison"}}
                 },
             "HP": 25,
             "status": "OK"}
@@ -36,12 +58,59 @@ Charmander = {"name": "CHARMANDER",
             "HP": 28,
             "status": "OK"}
 
-myPokemon = Bulbasaur
-foePokemon = Charmander
+myPokemon = Pikachu
+foePokemon = Pidgey
 
 cont = "Press ENTER to continue..."
 
 onTurn = myPokemon
+
+def foeAttack():
+   foeAttackNum = 1
+   # foeAttackNum = random.randint(1,4)
+   if foeAttackNum == 1:
+    print(foePokemon["name"],"used",str(foePokemon["attacks"]["first"]).replace("'","").replace("{","").replace("}","").split()[2].replace(",","!"))
+    foeAcc = int(str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[10])
+    foePwr = int(str(foePokemon["attacks"]["first"]).replace("'","").replace("{","").replace("}","").split()[4].replace(",",""))
+    foeTyp = str(foePokemon["attacks"]["first"]).replace("'","").replace("{","").replace("}","").split()[10].replace(",","")
+    foeSta = str(foePokemon["attacks"]["first"]).replace("'","").replace("{","").replace("}","").split()[8].replace(",","")
+    print("Acc:",foeAcc)
+    print("Pwr:",foePwr)
+    print("Type:",foeTyp)
+    print("Status:",foeSta)
+   if foeAttackNum == 2:
+    print(foePokemon["name"],"used",str(foePokemon["attacks"]["second"]).replace("'","").replace("{","").replace("}","").split()[2].replace(",","!"))
+    foeAcc = int(str(foePokemon["attacks"]["second"]).replace("'","").replace("{","").replace("}","").split()[6].replace(",",""))
+    foePwr = int(str(foePokemon["attacks"]["second"]).replace("'","").replace("{","").replace("}","").split()[4].replace(",",""))
+    foeTyp = str(foePokemon["attacks"]["second"]).replace("'","").replace("{","").replace("}","").split()[10].replace(",","")
+    foeSta = str(foePokemon["attacks"]["second"]).replace("'","").replace("{","").replace("}","").split()[8].replace(",","")
+    print("Acc:",foeAcc)
+    print("Pwr:",foePwr)
+    print("Type:",foeTyp)
+    print("Status:",foeSta)
+   if foeAttackNum == 3:
+    print(foePokemon["name"],"used",str(foePokemon["attacks"]["third"]).replace("'","").replace("{","").replace("}","").split()[2].replace(",","!"))
+    foeAcc = int(str(foePokemon["attacks"]["third"]).replace("'","").replace("{","").replace("}","").split()[6].replace(",",""))
+    foePwr = int(str(foePokemon["attacks"]["third"]).replace("'","").replace("{","").replace("}","").split()[4].replace(",",""))
+    foeTyp = str(foePokemon["attacks"]["third"]).replace("'","").replace("{","").replace("}","").split()[10].replace(",","")
+    foeSta = str(foePokemon["attacks"]["third"]).replace("'","").replace("{","").replace("}","").split()[8].replace(",","")
+    print("Acc:",foeAcc)
+    print("Pwr:",foePwr)
+    print("Type:",foeTyp)
+    print("Status:",foeSta)
+   if foeAttackNum == 4:
+    print(foePokemon["name"],"used",str(foePokemon["attacks"]["fourth"]).replace("'","").replace("{","").replace("}","").split()[2].replace(",","!"))
+    foeAcc = int(str(foePokemon["attacks"]["fourth"]).replace("'","").replace("{","").replace("}","").split()[6].replace(",",""))
+    foePwr = int(str(foePokemon["attacks"]["fourth"]).replace("'","").replace("{","").replace("}","").split()[4].replace(",",""))
+    foeTyp = str(foePokemon["attacks"]["fourth"]).replace("'","").replace("{","").replace("}","").split()[10].replace(",","")
+    foeSta = str(foePokemon["attacks"]["fourth"]).replace("'","").replace("{","").replace("}","").split()[8].replace(",","")
+    print("Acc:",foeAcc)
+    print("Pwr:",foePwr)
+    print("Type:",foeTyp)
+    print("Status:",foeSta)
+   print(input(cont))
+   
+
 
 def endgame():
    print("""
@@ -61,11 +130,17 @@ eff = 1
    
 def effic(a,b): #a = pokemon type, b = attack type
    global eff
-   if a == "fire" and b == "water":
+   if a == "fire" and b == "water" or b == "fire":
       eff = 2
    if a == "flying" and b == "ground":
       eff = 0
-   if a == "water" and b == "grass":
+   if a == "water" and b == "grass" or b == "electric":
+      eff = 2
+   if a =="grass" and b == "water" or b == "grass":
+      eff = 0.5
+   if a =="fire" and b == "grass" or b == "fire":
+      eff = 0.5
+   if a == "flying" and b == "electric":
       eff = 2
    return eff
 
@@ -130,21 +205,27 @@ def attackon(a,b):
      if accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["first"][b]["name"],"!")
         if eff == 2:
-           print("It's supper effective!")
+           print("It's super effective!")
         if eff == 0:
             print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : (foePokemon["HP"] - (a["first"][b]["power"])*eff)})
+        foePokemon.update({"HP" : int((foePokemon["HP"] - (a["first"][b]["power"])*eff))})
         if eff != 0:
             foePokemon.update({"status" : a["first"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["first"][b]["name"],"!")
         if eff == 2:
-           print("Its supper effective!")
+           print("Its super effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")   
         print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : foePokemon["HP"] - a["first"][b]["power"]})
+        foePokemon.update({"HP" : int((foePokemon["HP"] - (a["first"][b]["power"])*eff))})
      else:
         print(myPokemon["name"],"attack missed!")
         print("")
@@ -155,21 +236,28 @@ def attackon(a,b):
      if accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["second"][b]["name"],"!")
         if eff == 2:
-           print("It's supper effective!")
+           print("It's super effective!")
         if eff == 0:
             print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print(eff)
         print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : (foePokemon["HP"] - (a["second"][b]["power"])*eff)})
+        foePokemon.update({"HP" : foePokemon["HP"] - int((a["second"][b]["power"])*eff)})
         if eff != 0:
             foePokemon.update({"status" : a["second"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["second"][b]["name"],"!")
         if eff == 2:
-           print("Its supper effective!")
+           print("Its super effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : foePokemon["HP"] - a["second"][b]["power"]})
+        foePokemon.update({"HP" : int(foePokemon["HP"] - (a["second"][b]["power"])*eff)})
      else:
         print(myPokemon["name"],"attack missed!")
         print("")
@@ -180,21 +268,28 @@ def attackon(a,b):
      if accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["third"][b]["name"],"!")
         if eff == 2:
-           print("It's supper effective!")
+           print("It's super effective!")
         if eff == 0:
             print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print(eff)
         print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : (foePokemon["HP"] - (a["third"][b]["power"])*eff)})
+        foePokemon.update({"HP" : foePokemon["HP"] - int((a["third"][b]["power"])*eff)})
         if eff != 0:
             foePokemon.update({"status" : a["third"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["third"][b]["name"],"!")
         if eff == 2:
-           print("Its supper effective!")
+           print("Its super effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : foePokemon["HP"] - a["third"][b]["power"]})
+        foePokemon.update({"HP" : int(foePokemon["HP"] - (a["third"][b]["power"])*eff)})
      else:
         print(myPokemon["name"],"attack missed!")
         print("")
@@ -205,21 +300,27 @@ def attackon(a,b):
      if accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
         if eff == 2:
-           print("It's supper effective!")
+           print("It's super effective!")
         if eff == 0:
             print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : (foePokemon["HP"] - (a["fourth"][b]["power"])*eff)})
+        foePokemon.update({"HP" : int((foePokemon["HP"] - (a["fourth"][b]["power"])*eff))})
         if eff != 0:
             foePokemon.update({"status" : a["fourth"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
         if eff == 2:
-           print("Its supper effective!")
+           print("Its super effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
-        foePokemon.update({"HP" : foePokemon["HP"] - a["fourth"][b]["power"]})
+        foePokemon.update({"HP" : int(foePokemon["HP"] - (a["fourth"][b]["power"])*eff)})
      else:
         print(myPokemon["name"],"attack missed!")
         print("")
@@ -227,6 +328,9 @@ def attackon(a,b):
        
     main_screen()     
 
+#print(str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[5])
+#print(input("wait"))
+foeAttack()
+
 # print(myPokemon["attacks"]["bubble"])
 main_screen()
-
