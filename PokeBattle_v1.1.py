@@ -546,6 +546,7 @@ def main_screen():
     myPokemon_attack()
 
 def myPokemon_attack():
+    print("")
     print("What do you want",myPokemon["name"],"to do? ")
     print("")
     attackname_first = str(myPokemon["attacks"]["first"].keys()).replace("dict_keys(","").replace("[","").replace("]","").replace(")","").replace("'","")
