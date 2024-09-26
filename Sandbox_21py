@@ -63,10 +63,22 @@ Charmander = {"name": "CHARMANDER",
             "status": "OK"
             ,"speed": 4}
 
+Sandshrew = {"name": "SANDSHREW",
+            "type": "ground",
+            "attacks": {
+                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
+                "second" : {"rock throw" : {"name": "ROCK THROW", "power": 3, "acc": 4, "stc": "OK","type": "rock"}},
+                "third" : {"mud-slap" : {"name": "MUD-SLAP", "power": 3, "acc": 4, "stc": "OK","type": "ground"}},
+                "fourth" : {"earthquake" : {"name": "EARTHQUAKE", "power": 6, "acc": 3, "stc": "OK","type": "ground"}}
+                },
+            "HP": 26,
+            "status": "OK"
+            ,"speed": 4}
+
 myPokemon = Squirtle
 foePokemon = Bulbasaur
 
-choice = [Bulbasaur["name"], Charmander["name"], Squirtle["name"], Pikachu["name"], Pidgey["name"]]
+choice = [Bulbasaur["name"], Charmander["name"], Squirtle["name"], Pikachu["name"], Pidgey["name"], Sandshrew["name"]]
 
 cont = "Press ENTER to continue..."
 
@@ -249,10 +261,11 @@ def foeAttack():
         print(input("Press ENTER to continue..."))
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*eff)})
     else:
+        print(foePokemon["name"],"used",foeAtt,"! But...")
         print(foePokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
-    eff = 1
+   eff = 1
    main_screen()
   
 
@@ -288,18 +301,34 @@ eff = 1
    
 def effic(a,b): #a = pokemon type, b = attack type
    global eff
-   if a == "fire" and b == "water" or b == "fire":
+   if a == "fire" and (b == "water" or b == "ground"):
       eff = 2
-   if a == "flying" and b == "ground":
+   if a == "water" and (b == "grass" or b == "electric"):
+      eff = 2
+   if a == "grass" and (b == "fire" or b == "poison"):
+      eff = 2
+   if a == "electric" and (b == "ground" or b == "rock"):
+      eff = 2
+   if a == "flying" and (b == "electric" or b == "rock"):
+      eff = 2
+   if a == "ground" and (b == "water" or b == "ground"):
+      eff = 2
+   if a =="grass" and (b == "water" or b == "grass"):
+      eff = 0.5
+   if a =="fire" and (b == "grass" or b == "fire"):
+      eff = 0.5
+   if a =="water" and (b == "water" or b == "fire"):
+      eff = 0.5
+   if a =="electric" and (b == "electric"):
+      eff = 0.5
+   if a =="flying" and (b == "grass"):
+      eff = 0.5
+   if a =="ground" and (b == "normal"):
+      eff = 0.5
+   if a =="ground" and (b == "electric"):
       eff = 0
-   if a == "water" and b == "grass" or b == "electric":
-      eff = 2
-   if a =="grass" and b == "water" or b == "grass":
-      eff = 0.5
-   if a =="fire" and b == "grass" or b == "fire":
-      eff = 0.5
-   if a == "flying" and b == "electric":
-      eff = 2
+   if a == "flying" and (b == "ground"):
+      eff = 0 
    return eff
 
 def main_screen():
@@ -352,6 +381,7 @@ def myPokemon_attack():
 
 def attackon(a,b):
     os.system('cls')
+    global eff
     if b in a["first"]:
      effic(foePokemon["type"],a["first"][b]["type"])
      accuracy = a["first"][b]["acc"] + random.randint(1,6)
@@ -476,7 +506,7 @@ def attackon(a,b):
         print(myPokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
-       
+    eff = 1   
     foeAttack()     
 
 #print(str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[5])
@@ -493,13 +523,17 @@ def choose():
        myPokemon = Squirtle
     elif myPokemon == "BULBASAUR":
        myPokemon = Bulbasaur
+    elif myPokemon == "SANDSHREW":
+       myPokemon = Sandshrew
     elif myPokemon == "PIDGEY":
        myPokemon = Pidgey
     elif myPokemon == "PIKACHU":
        myPokemon = Pikachu
     else:
        choose()
+    os.system('cls')
     print("You have chosen",myPokemon["type"],"pokemon",myPokemon["name"])
+    print("")
     print("Now you have to choose pokemon for your rival.")
     print(input(cont))
     os.system('cls')
@@ -509,16 +543,25 @@ def choose():
     foePokemon = input("Choose your rival's pokemon from the list above. ").upper()
     if foePokemon == "CHARMANDER":
        foePokemon = Charmander
+       print("You have chosen",foePokemon["type"],"pokemon",foePokemon["name"],"for your rival.")
     elif foePokemon == "SQUIRTLE":
        foePokemon = Squirtle
+       print("You have chosen",foePokemon["type"],"pokemon",foePokemon["name"],"for your rival.")
     elif foePokemon == "BULBASAUR":
        foePokemon = Bulbasaur
+       print("You have chosen",foePokemon["type"],"pokemon",foePokemon["name"],"for your rival.")
     elif foePokemon == "PIDGEY":
        foePokemon = Pidgey
+       print("You have chosen",foePokemon["type"],"pokemon",foePokemon["name"],"for your rival.")
+    elif foePokemon == "SANDSHREW":
+       foePokemon = Sandshrew
+       print("You have chosen",foePokemon["type"],"pokemon",foePokemon["name"],"for your rival.")
     elif foePokemon == "PIKACHU":
        foePokemon = Pikachu
+       print("You have chosen",foePokemon["type"],"pokemon",foePokemon["name"],"for your rival.")
     else:
        print("Rival then has chosen his pokemon by his own.")
+       print(input(cont))
        foePokemon = rival_list[random.randint(0,len(rival_list)-1)]
        if foePokemon == "CHARMANDER":
            foePokemon = Charmander
@@ -528,6 +571,8 @@ def choose():
            foePokemon = Bulbasaur
        elif foePokemon == "PIDGEY":
            foePokemon = Pidgey
+       elif foePokemon == "SANDSHREW":
+           foePokemon = Sandshrew
        elif foePokemon == "PIKACHU":
            foePokemon = Pikachu
        print("Rival has chosen",foePokemon["type"],"pokemon",foePokemon["name"],"!") 
