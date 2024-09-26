@@ -6,10 +6,10 @@ os.system('cls')
 Bulbasaur = {"name": "BULBASAUR",
             "type": "grass",
             "attacks": {
-                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
-                "second" : {"vine whip" : {"name": "VINE WHIP", "power": 4, "acc": 4, "stc": "OK","type": "grass"}},
-                "third" : {"poison powder" : {"name": "POISON POWDER", "power": 0, "acc": 3, "stc": "PSN","type": "poison"}},
-                "fourth" : {"sleep powder" : {"name": "SLEEP POWDER", "power": 0, "acc": 3, "stc": "SLP","type": "grass"}}
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
+                "second" : {"vine whip" : {"name": "VINE WHIP", "power": 4, "acc": 5, "stc": "OK","type": "grass"}},
+                "third" : {"poison powder" : {"name": "POISON POWDER", "power": 0, "acc": 4, "stc": "PSN","type": "poison"}},
+                "fourth" : {"sleep powder" : {"name": "SLEEP POWDER", "power": 0, "acc": 4, "stc": "SLP","type": "grass"}}
                 },
             "HP": 29,
             "status": "OK",
@@ -18,10 +18,10 @@ Bulbasaur = {"name": "BULBASAUR",
 Squirtle = {"name": "SQUIRTLE",
             "type": "water",
             "attacks": {
-                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
-                "second" : {"bubble" : {"name": "BUBBLE", "power": 4, "acc": 4, "stc": "OK","type": "water"}},
-                "third" : {"water gun" : {"name": "WATER GUN", "power": 5, "acc": 3, "stc": "OK","type": "water"}},
-                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 2, "stc": "OK","type": "normal"}}
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
+                "second" : {"bubble" : {"name": "BUBBLE", "power": 4, "acc": 5, "stc": "OK","type": "water"}},
+                "third" : {"water gun" : {"name": "WATER GUN", "power": 5, "acc": 4, "stc": "OK","type": "water"}},
+                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 3, "stc": "OK","type": "normal"}}
                 },
             "HP": 25,
             "status": "OK",
@@ -30,10 +30,10 @@ Squirtle = {"name": "SQUIRTLE",
 Pidgey = {"name": "PIDGEY",
             "type": "flying",
             "attacks": {
-                "first" : {"gust" : {"name": "GUST", "power": 3, "acc": 4, "stc": "OK","type": "flying"}}, 
-                "second" : {"peck" : {"name": "PECK", "power": 4, "acc": 4, "stc": "OK","type": "flying"}},
-                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 3, "stc": "SLP","type": "normal"}},
-                "fourth" : {"wing slap" : {"name": "WING SLAP", "power": 5, "acc": 2, "stc": "OK","type": "flying"}}
+                "first" : {"gust" : {"name": "GUST", "power": 3, "acc": 5, "stc": "OK","type": "flying"}}, 
+                "second" : {"peck" : {"name": "PECK", "power": 4, "acc": 5, "stc": "OK","type": "flying"}},
+                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 4, "stc": "SLP","type": "normal"}},
+                "fourth" : {"wing slap" : {"name": "WING SLAP", "power": 5, "acc": 3, "stc": "OK","type": "flying"}}
                 },
             "HP": 21,
             "status": "OK",
@@ -42,9 +42,9 @@ Pidgey = {"name": "PIDGEY",
 Pikachu = {"name": "PIKACHU",
             "type": "electric",
             "attacks": {
-                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
-                "second" : {"thundershock" : {"name": "THUNDERSHOCK", "power": 4, "acc": 4, "stc": "OK","type": "electric"}},
-                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 3, "stc": "SLP","type": "normal"}},
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
+                "second" : {"thundershock" : {"name": "THUNDERSHOCK", "power": 4, "acc": 5, "stc": "OK","type": "electric"}},
+                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 4, "stc": "SLP","type": "normal"}},
                 "fourth" : {"toxic" : {"name": "TOXIC", "power": 1, "acc": 4, "stc": "PSN","type": "poison"}}
                 },
             "HP": 24,
@@ -54,10 +54,10 @@ Pikachu = {"name": "PIKACHU",
 Charmander = {"name": "CHARMANDER",
             "type": "fire",
             "attacks": {
-                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
-                "second" : {"ember" : {"name": "EMBER", "power": 3, "acc": 4, "stc": "OK","type": "fire"}},
-                "third" : {"bite" : {"name": "BITE", "power": 4, "acc": 3, "stc": "OK","type": "dark"}},
-                "fourth" : {"flame wheel" : {"name": "FLAME WHEEL", "power": 5, "acc": 2, "stc": "OK","type": "fire"}}
+                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
+                "second" : {"ember" : {"name": "EMBER", "power": 3, "acc": 5, "stc": "BRN","type": "fire"}},
+                "third" : {"bite" : {"name": "BITE", "power": 4, "acc": 4, "stc": "OK","type": "dark"}},
+                "fourth" : {"flame wheel" : {"name": "FLAME WHEEL", "power": 5, "acc": 3, "stc": "BRN","type": "fire"}}
                 },
             "HP": 28,
             "status": "OK"
@@ -66,17 +66,17 @@ Charmander = {"name": "CHARMANDER",
 Sandshrew = {"name": "SANDSHREW",
             "type": "ground",
             "attacks": {
-                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
-                "second" : {"rock throw" : {"name": "ROCK THROW", "power": 3, "acc": 4, "stc": "OK","type": "rock"}},
-                "third" : {"mud-slap" : {"name": "MUD-SLAP", "power": 3, "acc": 4, "stc": "OK","type": "ground"}},
-                "fourth" : {"earthquake" : {"name": "EARTHQUAKE", "power": 6, "acc": 3, "stc": "OK","type": "ground"}}
+                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
+                "second" : {"rock throw" : {"name": "ROCK THROW", "power": 3, "acc": 5, "stc": "OK","type": "rock"}},
+                "third" : {"mud-slap" : {"name": "MUD-SLAP", "power": 3, "acc": 5, "stc": "OK","type": "ground"}},
+                "fourth" : {"earthquake" : {"name": "EARTHQUAKE", "power": 6, "acc": 4, "stc": "OK","type": "ground"}}
                 },
             "HP": 26,
             "status": "OK"
             ,"speed": 4}
 
-myPokemon = Squirtle
-foePokemon = Bulbasaur
+myPokemon = Charmander
+foePokemon = Sandshrew
 
 choice = [Bulbasaur["name"], Charmander["name"], Squirtle["name"], Pikachu["name"], Pidgey["name"], Sandshrew["name"]]
 
@@ -86,6 +86,28 @@ onTurn = myPokemon
 
 def foeAttack():
    os.system('cls')
+   if myPokemon["status"] == "BRN":
+       burn = random.randint(1,3)
+       if burn <= 2:
+          print(myPokemon["name"],"is hurt by burn!")
+          myPokemon.update({"HP" : myPokemon["HP"] -2})
+       else:
+          print(myPokemon["name"],"is not burning anymore") 
+          myPokemon.update({"status" : "OK"})    
+       print("")
+       print(input(cont))
+       os.system('cls')
+   if foePokemon["status"] == "BRN":
+       burn = random.randint(1,3)
+       if burn <= 2:
+          print(foePokemon["name"],"is hurt by burn!")
+          foePokemon.update({"HP" : foePokemon["HP"] -2})
+       else:
+          print(foePokemon["name"],"is not burning anymore") 
+          foePokemon.update({"status" : "OK"})    
+       print("")
+       print(input(cont))
+       os.system('cls')
    if myPokemon["status"] == "PSN":
        print(myPokemon["name"],"is hurt by poison!")
        print("")
@@ -331,11 +353,15 @@ def effic(a,b): #a = pokemon type, b = attack type
       eff = 2
    if a == "water" and (b == "grass" or b == "electric"):
       eff = 2
+   if a == "grass" and (b == "ground"):
+      eff = 2   
    if a == "grass" and (b == "fire" or b == "flying"):
       eff = 2
    if a == "electric" and (b == "ground" or b == "rock"):
       eff = 2
    if a == "flying" and (b == "electric" or b == "rock"):
+      eff = 2
+   if a == "ground" and (b == "grass"):
       eff = 2
    if a == "ground" and (b == "water" or b == "ground"):
       eff = 2
@@ -368,6 +394,28 @@ def main_screen():
        else:
           print(myPokemon["name"],"woke up!") 
           myPokemon.update({"status" : "OK"})    
+       print("")
+       print(input(cont))
+       os.system('cls')
+    if myPokemon["status"] == "BRN":
+       burn = random.randint(1,3)
+       if burn <= 2:
+          print(myPokemon["name"],"is hurt by burn!")
+          myPokemon.update({"HP" : myPokemon["HP"] -2})
+       else:
+          print(myPokemon["name"],"is not burning anymore") 
+          myPokemon.update({"status" : "OK"})    
+       print("")
+       print(input(cont))
+       os.system('cls')
+    if foePokemon["status"] == "BRN":
+       burn = random.randint(1,3)
+       if burn <= 2:
+          print(foePokemon["name"],"is hurt by burn!")
+          foePokemon.update({"HP" : foePokemon["HP"] -2})
+       else:
+          print(foePokemon["name"],"is not burning anymore") 
+          foePokemon.update({"status" : "OK"})    
        print("")
        print(input(cont))
        os.system('cls')
@@ -425,6 +473,24 @@ def attackon(a,b):
         print("")
         print("ZzZzZ...")
         print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK" and a["first"][b]["type"] == "fire":
+        burn = random.randint(1,4)
+        print(myPokemon["name"], "used", a["first"][b]["name"],"!")
+        if eff == 2:
+           print("It's super effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print("")
+        print(input("Press ENTER to continue..."))
+        foePokemon.update({"HP" : foePokemon["HP"] - int((a["first"][b]["power"])*eff)})
+        if eff != 0 and burn == 1:
+            os.system('cls')
+            print(foePokemon["name"],"is burning!")
+            print("")
+            print(input(cont))
+            foePokemon.update({"status" : a["first"][b]["stc"]})
      elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["first"][b]["name"],"!")
         if eff == 2:
@@ -460,6 +526,24 @@ def attackon(a,b):
         print("")
         print("ZzZzZ...")
         print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK" and a["second"][b]["type"] == "fire":
+        burn = random.randint(1,4)
+        print(myPokemon["name"], "used", a["second"][b]["name"],"!")
+        if eff == 2:
+           print("It's super effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print("")
+        print(input("Press ENTER to continue..."))
+        foePokemon.update({"HP" : foePokemon["HP"] - int((a["second"][b]["power"])*eff)})
+        if eff != 0 and burn == 1:
+            os.system('cls')
+            print(foePokemon["name"],"is burning!")
+            print("")
+            print(input(cont))
+            foePokemon.update({"status" : a["second"][b]["stc"]})
      elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["second"][b]["name"],"!")
         if eff == 2:
@@ -495,6 +579,24 @@ def attackon(a,b):
         print("")
         print("ZzZzZ...")
         print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK" and a["third"][b]["type"] == "fire":
+        burn = random.randint(1,4)
+        print(myPokemon["name"], "used", a["third"][b]["name"],"!")
+        if eff == 2:
+           print("It's super effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print("")
+        print(input("Press ENTER to continue..."))
+        foePokemon.update({"HP" : foePokemon["HP"] - int((a["third"][b]["power"])*eff)})
+        if eff != 0 and burn == 1:
+            os.system('cls')
+            print(foePokemon["name"],"is burning!")
+            print("")
+            print(input(cont))
+            foePokemon.update({"status" : a["third"][b]["stc"]})
      elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["third"][b]["name"],"!")
         if eff == 2:
@@ -530,6 +632,24 @@ def attackon(a,b):
         print("")
         print("ZzZzZ...")
         print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK" and a["fourth"][b]["type"] == "fire":
+        burn = random.randint(1,4)
+        print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
+        if eff == 2:
+           print("It's super effective!")
+        if eff == 0:
+            print("But it didn't work.")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print("")
+        print(input("Press ENTER to continue..."))
+        foePokemon.update({"HP" : foePokemon["HP"] - int((a["fourth"][b]["power"])*eff)})
+        if eff != 0 and burn == 1:
+            os.system('cls')
+            print(foePokemon["name"],"is burning!")
+            print("")
+            print(input(cont))
+            foePokemon.update({"status" : a["fourth"][b]["stc"]})
      elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
         if eff == 2:
@@ -632,7 +752,7 @@ def choose():
 
 os.system('cls')    
 
-choose()
+# choose()
 
 if myPokemon["speed"] >= foePokemon["speed"]:
    main_screen()

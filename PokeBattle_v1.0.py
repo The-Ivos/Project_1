@@ -337,6 +337,8 @@ def effic(a,b): #a = pokemon type, b = attack type
       eff = 2
    if a == "flying" and (b == "electric" or b == "rock"):
       eff = 2
+   if a == "ground" and (b == "grass"):
+      eff = 2
    if a == "ground" and (b == "water" or b == "ground"):
       eff = 2
    if a =="grass" and (b == "water" or b == "grass"):
