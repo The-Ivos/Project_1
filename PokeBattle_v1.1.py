@@ -75,8 +75,8 @@ Sandshrew = {"name": "SANDSHREW",
             "status": "OK"
             ,"speed": 4}
 
-myPokemon = Charmander
-foePokemon = Sandshrew
+myPokemon = Pidgey
+foePokemon = Charmander
 
 choice = [Bulbasaur["name"], Charmander["name"], Squirtle["name"], Pikachu["name"], Pidgey["name"], Sandshrew["name"]]
 
@@ -157,6 +157,24 @@ def foeAttack():
         print("")
         print("ZzZzZ...")
         print(input(cont))
+    elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["first"][foeAtt.lower()]["type"] == "fire":
+       burn = random.randint(1,4)
+       print(foePokemon["name"],"used",foeAtt,"!")
+       if eff == 2:
+           print("It's super effective!")
+       if eff == 0:
+            print("But it didn't work.")
+       if eff == 0.5:
+            print("It's not very effective.")
+       print("")
+       print(input("Press ENTER to continue..."))
+       myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*eff)})
+       if eff != 0 and burn == 1:
+        os.system('cls')
+        print(myPokemon["name"],"is burning!")
+        print("")
+        print(input(cont))
+        myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
        if eff == 2:
@@ -200,6 +218,24 @@ def foeAttack():
         print("")
         print("ZzZzZ...")
         print(input(cont))
+    elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["second"][foeAtt.lower()]["type"] == "fire":
+       burn = random.randint(1,4)
+       print(foePokemon["name"],"used",foeAtt,"!")
+       if eff == 2:
+           print("It's super effective!")
+       if eff == 0:
+            print("But it didn't work.")
+       if eff == 0.5:
+            print("It's not very effective.")
+       print("")
+       print(input("Press ENTER to continue..."))
+       myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*eff)})
+       if eff != 0 and burn == 1:
+        os.system('cls')
+        print(myPokemon["name"],"is burning!")
+        print("")
+        print(input(cont))
+        myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
        if eff == 2:
@@ -242,6 +278,24 @@ def foeAttack():
         print("")
         print("ZzZzZ...")
         print(input(cont))
+    elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["third"][foeAtt.lower()]["type"] == "fire":
+       burn = random.randint(1,4)
+       print(foePokemon["name"],"used",foeAtt,"!")
+       if eff == 2:
+           print("It's super effective!")
+       if eff == 0:
+            print("But it didn't work.")
+       if eff == 0.5:
+            print("It's not very effective.")
+       print("")
+       print(input("Press ENTER to continue..."))
+       myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*eff)})
+       if eff != 0 and burn == 1:
+        os.system('cls')
+        print(myPokemon["name"],"is burning!")
+        print("")
+        print(input(cont))
+        myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
        if eff == 2:
@@ -284,6 +338,24 @@ def foeAttack():
         print("")
         print("ZzZzZ...")
         print(input(cont))
+    elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["fourth"][foeAtt.lower()]["type"] == "fire":
+       burn = random.randint(1,4)
+       print(foePokemon["name"],"used",foeAtt,"!")
+       if eff == 2:
+           print("It's super effective!")
+       if eff == 0:
+            print("But it didn't work.")
+       if eff == 0.5:
+            print("It's not very effective.")
+       print("")
+       print(input("Press ENTER to continue..."))
+       myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*eff)})
+       if eff != 0 and burn == 1:
+        os.system('cls')
+        print(myPokemon["name"],"is burning!")
+        print("")
+        print(input(cont))
+        myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
        if eff == 2:
@@ -752,7 +824,7 @@ def choose():
 
 os.system('cls')    
 
-# choose()
+choose()
 
 if myPokemon["speed"] >= foePokemon["speed"]:
    main_screen()
