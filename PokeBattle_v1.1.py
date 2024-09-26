@@ -75,7 +75,7 @@ Sandshrew = {"name": "SANDSHREW",
             "status": "OK"
             ,"speed": 4}
 
-myPokemon = Charmander
+myPokemon = Bulbasaur
 foePokemon = Squirtle
 
 choice = [Bulbasaur["name"], Charmander["name"], Squirtle["name"], Pikachu["name"], Pidgey["name"], Sandshrew["name"]]
@@ -548,21 +548,29 @@ def main_screen():
 def myPokemon_attack():
     print("What do you want",myPokemon["name"],"to do? ")
     print("")
+    attackname_first = str(myPokemon["attacks"]["first"].keys()).replace("dict_keys(","").replace("[","").replace("]","").replace(")","").replace("'","")
+    attackname_second = str(myPokemon["attacks"]["second"].keys()).replace("dict_keys(","").replace("[","").replace("]","").replace(")","").replace("'","")
+    attackname_third = str(myPokemon["attacks"]["third"].keys()).replace("dict_keys(","").replace("[","").replace("]","").replace(")","").replace("'","")
+    attackname_fourth = str(myPokemon["attacks"]["fourth"].keys()).replace("dict_keys(","").replace("[","").replace("]","").replace(")","").replace("'","")
+    spaces_first = " " * (13 - len(attackname_first))
+    spaces_second = " " * (13 - len(attackname_second))
+    spaces_third = " " * (13 - len(attackname_third))
+    spaces_fourth = " " * (13 - len(attackname_fourth))
     attacks_count = len(myPokemon["attacks"].keys())
     if attacks_count == 4:
-        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
-        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
-        print(str((myPokemon["attacks"]["third"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
-        print(str((myPokemon["attacks"]["fourth"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_first,"(type:",myPokemon["attacks"]["first"][attackname_first]["type"].upper(),")")
+        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_second,"(type:",myPokemon["attacks"]["second"][attackname_second]["type"].upper(),")")
+        print(str((myPokemon["attacks"]["third"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_third,"(type:",myPokemon["attacks"]["third"][attackname_third]["type"].upper(),")")
+        print(str((myPokemon["attacks"]["fourth"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_fourth,"(type:",myPokemon["attacks"]["fourth"][attackname_fourth]["type"].upper(),")")
     elif attacks_count == 3:
-        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
-        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
-        print(str((myPokemon["attacks"]["third"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_first,"(type:",myPokemon["attacks"]["first"][attackname_first]["type"].upper(),")")
+        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_second,"(type:",myPokemon["attacks"]["second"][attackname_second]["type"].upper(),")")
+        print(str((myPokemon["attacks"]["third"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_third,"(type:",myPokemon["attacks"]["third"][attackname_third]["type"].upper(),")")
     elif attacks_count == 2:
-        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
-        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_first,"(type:",myPokemon["attacks"]["first"][attackname_first]["type"].upper(),")")
+        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_second,"(type:",myPokemon["attacks"]["second"][attackname_second]["type"].upper(),")")
     else:
-        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper())
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_first,"(type:",myPokemon["attacks"]["first"][attackname_first]["type"].upper(),")")
     print("")
     attackon(myPokemon["attacks"],input("Choose an attack! "))
 
