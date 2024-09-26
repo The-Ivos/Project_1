@@ -164,14 +164,15 @@ def foeAttack():
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["first"][foeAtt.lower()]["type"] == "fire":
        burn = random.randint(1,4)
        print(foePokemon["name"],"used",foeAtt,"!")
-       if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-       if eff == 2:
-           print("It's super effective!")
        if eff == 0:
-            print("But it didn't work.")
+        critical = 0
+        print("But it didn't work.")
+       if critical == 0.9:
+        print("It's a CRITICAL HIT!")
+       if eff == 2:
+        print("Its super effective!")
        if eff == 0.5:
-            print("It's not very effective.")
+        print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -183,14 +184,15 @@ def foeAttack():
         myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
-       if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-       if eff == 2:
-           print("It's super effective!")
        if eff == 0:
-            print("But it didn't work.")
+        critical = 0
+        print("But it didn't work.")
+       if critical == 0.9:
+        print("It's a CRITICAL HIT!")
+       if eff == 2:
+        print("Its super effective!")
        if eff == 0.5:
-            print("It's not very effective.")
+        print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -198,14 +200,15 @@ def foeAttack():
         myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7:
         print(foePokemon["name"],"used",foeAtt,"!")
-        if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-        if eff == 2:
-           print("Its super effective!")
         if eff == 0:
-            print("But it didn't work.")
+         critical = 0
+         print("But it didn't work.")
+        if critical == 0.9:
+         print("It's a CRITICAL HIT!")
+        if eff == 2:
+         print("Its super effective!")
         if eff == 0.5:
-            print("It's not very effective.")   
+         print("It's not very effective.") 
         print("")
         print(input("Press ENTER to continue..."))
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -231,14 +234,15 @@ def foeAttack():
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["second"][foeAtt.lower()]["type"] == "fire":
        burn = random.randint(1,4)
        print(foePokemon["name"],"used",foeAtt,"!")
-       if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-       if eff == 2:
-           print("It's super effective!")
        if eff == 0:
-            print("But it didn't work.")
+         critical = 0
+         print("But it didn't work.")
+       if critical == 0.9:
+         print("It's a CRITICAL HIT!")
+       if eff == 2:
+         print("Its super effective!")
        if eff == 0.5:
-            print("It's not very effective.")
+         print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -250,14 +254,15 @@ def foeAttack():
         myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
-       if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-       if eff == 2:
-           print("It's super effective!")
        if eff == 0:
-            print("But it didn't work.")
+        critical = 0
+        print("But it didn't work.")
+       if critical == 0.9:
+        print("It's a CRITICAL HIT!")
+       if eff == 2:
+        print("Its super effective!")
        if eff == 0.5:
-            print("It's not very effective.")
+        print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -265,14 +270,15 @@ def foeAttack():
         myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7:
         print(foePokemon["name"],"used",foeAtt,"!")
-        if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-        if eff == 2:
-           print("Its super effective!")
         if eff == 0:
-            print("But it didn't work.")
+          critical = 0
+          print("But it didn't work.")
+        if critical == 0.9:
+          print("It's a CRITICAL HIT!")
+        if eff == 2:
+          print("Its super effective!")
         if eff == 0.5:
-            print("It's not very effective.")   
+          print("It's not very effective.") 
         print("")
         print(input("Press ENTER to continue..."))
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -297,14 +303,15 @@ def foeAttack():
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["third"][foeAtt.lower()]["type"] == "fire":
        burn = random.randint(1,4)
        print(foePokemon["name"],"used",foeAtt,"!")
-       if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-       if eff == 2:
-           print("It's super effective!")
        if eff == 0:
-            print("But it didn't work.")
+         critical = 0
+         print("But it didn't work.")
+       if critical == 0.9:
+         print("It's a CRITICAL HIT!")
+       if eff == 2:
+         print("Its super effective!")
        if eff == 0.5:
-            print("It's not very effective.")
+         print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -316,14 +323,15 @@ def foeAttack():
         myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
-       if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-       if eff == 2:
-           print("It's super effective!")
        if eff == 0:
-            print("But it didn't work.")
+         critical = 0
+         print("But it didn't work.")
+       if critical == 0.9:
+         print("It's a CRITICAL HIT!")
+       if eff == 2:
+         print("Its super effective!")
        if eff == 0.5:
-            print("It's not very effective.")
+         print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -331,14 +339,15 @@ def foeAttack():
         myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7:
         print(foePokemon["name"],"used",foeAtt,"!")
-        if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-        if eff == 2:
-           print("Its super effective!")
         if eff == 0:
-            print("But it didn't work.")
+          critical = 0
+          print("But it didn't work.")
+        if critical == 0.9:
+          print("It's a CRITICAL HIT!")
+        if eff == 2:
+          print("Its super effective!")
         if eff == 0.5:
-            print("It's not very effective.")   
+          print("It's not very effective.") 
         print("")
         print(input("Press ENTER to continue..."))
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -363,14 +372,15 @@ def foeAttack():
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["fourth"][foeAtt.lower()]["type"] == "fire":
        burn = random.randint(1,4)
        print(foePokemon["name"],"used",foeAtt,"!")
-       if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-       if eff == 2:
-           print("It's super effective!")
        if eff == 0:
-            print("But it didn't work.")
+          critical = 0
+          print("But it didn't work.")
+       if critical == 0.9:
+          print("It's a CRITICAL HIT!")
+       if eff == 2:
+          print("Its super effective!")
        if eff == 0.5:
-            print("It's not very effective.")
+          print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -382,14 +392,15 @@ def foeAttack():
         myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
-       if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-       if eff == 2:
-           print("It's super effective!")
        if eff == 0:
-            print("But it didn't work.")
+        critical = 0
+        print("But it didn't work.")
+       if critical == 0.9:
+         print("It's a CRITICAL HIT!")
+       if eff == 2:
+         print("Its super effective!")
        if eff == 0.5:
-            print("It's not very effective.")
+         print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
@@ -397,14 +408,15 @@ def foeAttack():
         myPokemon.update({"status" : foeSta})
     elif foeAccuracy >= 7:
         print(foePokemon["name"],"used",foeAtt,"!")
-        if critical == 0.9:
-           print("It's a CRITICAL HIT!")
-        if eff == 2:
-           print("Its super effective!")
         if eff == 0:
-            print("But it didn't work.")
+         critical = 0
+         print("But it didn't work.")
+        if critical == 0.9:
+         print("It's a CRITICAL HIT!")
+        if eff == 2:
+         print("Its super effective!")
         if eff == 0.5:
-            print("It's not very effective.")   
+         print("It's not very effective.") 
         print("")
         print(input("Press ENTER to continue..."))
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
