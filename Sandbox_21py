@@ -8,8 +8,8 @@ Bulbasaur = {"name": "BULBASAUR",
             "attacks": {
                 "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
                 "second" : {"vine whip" : {"name": "VINE WHIP", "power": 4, "acc": 4, "stc": "OK","type": "grass"}},
-                "third" : {"poison powder" : {"name": "POISON POWDER", "power": 0, "acc": 3, "stc": "PSN","type": "grass"}},
-                "fourth" : {"razor leaf" : {"name": "RAZOR LEAF", "power": 7, "acc": 2, "stc": "OK","type": "grass"}}
+                "third" : {"poison powder" : {"name": "POISON POWDER", "power": 0, "acc": 3, "stc": "PSN","type": "poison"}},
+                "fourth" : {"sleep powder" : {"name": "SLEEP POWDER", "power": 0, "acc": 3, "stc": "SLP","type": "grass"}}
                 },
             "HP": 29,
             "status": "OK",
@@ -32,7 +32,7 @@ Pidgey = {"name": "PIDGEY",
             "attacks": {
                 "first" : {"gust" : {"name": "GUST", "power": 3, "acc": 4, "stc": "OK","type": "flying"}}, 
                 "second" : {"peck" : {"name": "PECK", "power": 4, "acc": 4, "stc": "OK","type": "flying"}},
-                "third" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 4, "stc": "OK","type": "normal"}},
+                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 3, "stc": "SLP","type": "normal"}},
                 "fourth" : {"wing slap" : {"name": "WING SLAP", "power": 5, "acc": 2, "stc": "OK","type": "flying"}}
                 },
             "HP": 21,
@@ -44,7 +44,7 @@ Pikachu = {"name": "PIKACHU",
             "attacks": {
                 "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 4, "stc": "OK","type": "normal"}}, 
                 "second" : {"thundershock" : {"name": "THUNDERSHOCK", "power": 4, "acc": 4, "stc": "OK","type": "electric"}},
-                "third" : {"earthquake" : {"name": "EARTHQUAKE", "power": 4, "acc": 3, "stc": "OK","type": "ground"}},
+                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 3, "stc": "SLP","type": "normal"}},
                 "fourth" : {"toxic" : {"name": "TOXIC", "power": 1, "acc": 4, "stc": "PSN","type": "poison"}}
                 },
             "HP": 24,
@@ -97,7 +97,17 @@ def foeAttack():
        print("")
        print(input(cont))
        foePokemon.update({"HP" : foePokemon["HP"] - 2})
-   os.system('cls')   
+   os.system('cls')  
+   if foePokemon["status"] == "SLP":
+       sleep = random.randint(1,3)
+       if sleep <= 2:
+          print(foePokemon["name"],"sleeps!")
+       else:
+          print(foePokemon["name"],"woke up!") 
+          foePokemon.update({"status" : "OK"})    
+       print("")
+       print(input(cont))
+       os.system('cls') 
    if foePokemon["HP"] <= 0 or myPokemon["HP"] <= 0:
       endgame()
       exit()    
@@ -121,7 +131,11 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["first"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foeAccuracy >= 7 and myPokemon["status"] == "OK":
+    if foePokemon["status"] == "SLP":
+        print("")
+        print("ZzZzZ...")
+        print(input(cont))
+    elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
        if eff == 2:
            print("It's super effective!")
@@ -160,7 +174,11 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["second"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foeAccuracy >= 7 and myPokemon["status"] == "OK":
+    if foePokemon["status"] == "SLP":
+        print("")
+        print("ZzZzZ...")
+        print(input(cont))
+    elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
        if eff == 2:
            print("It's super effective!")
@@ -198,7 +216,11 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["third"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foeAccuracy >= 7 and myPokemon["status"] == "OK":
+    if foePokemon["status"] == "SLP":
+        print("")
+        print("ZzZzZ...")
+        print(input(cont))
+    elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
        if eff == 2:
            print("It's super effective!")
@@ -236,7 +258,11 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["fourth"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foeAccuracy >= 7 and myPokemon["status"] == "OK":
+    if foePokemon["status"] == "SLP":
+        print("")
+        print("ZzZzZ...")
+        print(input(cont))
+    elif foeAccuracy >= 7 and myPokemon["status"] == "OK":
        print(foePokemon["name"],"used",foeAtt,"!")
        if eff == 2:
            print("It's super effective!")
@@ -305,7 +331,7 @@ def effic(a,b): #a = pokemon type, b = attack type
       eff = 2
    if a == "water" and (b == "grass" or b == "electric"):
       eff = 2
-   if a == "grass" and (b == "fire" or b == "poison"):
+   if a == "grass" and (b == "fire" or b == "flying"):
       eff = 2
    if a == "electric" and (b == "ground" or b == "rock"):
       eff = 2
@@ -335,6 +361,16 @@ def main_screen():
     global eff
     eff = 1
     os.system('cls')
+    if myPokemon["status"] == "SLP":
+       sleep = random.randint(1,3)
+       if sleep <= 2:
+          print(myPokemon["name"],"sleeps!")
+       else:
+          print(myPokemon["name"],"woke up!") 
+          myPokemon.update({"status" : "OK"})    
+       print("")
+       print(input(cont))
+       os.system('cls')
     if myPokemon["status"] == "PSN":
        print(myPokemon["name"],"is hurt by poison!")
        print("")
@@ -385,7 +421,11 @@ def attackon(a,b):
     if b in a["first"]:
      effic(foePokemon["type"],a["first"][b]["type"])
      accuracy = a["first"][b]["acc"] + random.randint(1,6)
-     if accuracy >= 7 and foePokemon["status"] == "OK":
+     if myPokemon["status"] == "SLP":
+        print("")
+        print("ZzZzZ...")
+        print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["first"][b]["name"],"!")
         if eff == 2:
            print("It's super effective!")
@@ -416,7 +456,11 @@ def attackon(a,b):
     elif b in a["second"]:
      effic(foePokemon["type"],a["second"][b]["type"])
      accuracy = a["second"][b]["acc"] + random.randint(1,6)
-     if accuracy >= 7 and foePokemon["status"] == "OK":
+     if myPokemon["status"] == "SLP":
+        print("")
+        print("ZzZzZ...")
+        print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["second"][b]["name"],"!")
         if eff == 2:
            print("It's super effective!")
@@ -447,7 +491,11 @@ def attackon(a,b):
     elif b in a["third"]:
      effic(foePokemon["type"],a["third"][b]["type"])
      accuracy = a["third"][b]["acc"] + random.randint(1,6)
-     if accuracy >= 7 and foePokemon["status"] == "OK":
+     if myPokemon["status"] == "SLP":
+        print("")
+        print("ZzZzZ...")
+        print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["third"][b]["name"],"!")
         if eff == 2:
            print("It's super effective!")
@@ -478,7 +526,11 @@ def attackon(a,b):
     elif b in a["fourth"]:
      effic(foePokemon["type"],a["fourth"][b]["type"])
      accuracy = a["fourth"][b]["acc"] + random.randint(1,6)
-     if accuracy >= 7 and foePokemon["status"] == "OK":
+     if myPokemon["status"] == "SLP":
+        print("")
+        print("ZzZzZ...")
+        print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
         if eff == 2:
            print("It's super effective!")
