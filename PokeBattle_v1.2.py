@@ -590,7 +590,7 @@ def myPokemon_attack():
 def attackon(a,b):
     os.system('cls')
     critical = 0
-    critical_count = random.randint(1,7)
+    critical_count = random.randint(1,1)
     if critical_count == 1:
         critical = 0.9
     global eff
