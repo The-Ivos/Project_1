@@ -44,7 +44,7 @@ Pikachu = {"name": "PIKACHU",
             "attacks": {
                 "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
                 "second" : {"thundershock" : {"name": "THUNDERSHOCK", "power": 4, "acc": 5, "stc": "OK","type": "electric"}},
-                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 4, "stc": "SLP","type": "normal"}},
+                "third" : {"thunder wave" : {"name": "THUNDER WAVE", "power": 0, "acc": 4, "stc": "PAR","type": "electric"}},
                 "fourth" : {"toxic" : {"name": "TOXIC", "power": 1, "acc": 4, "stc": "PSN","type": "poison"}}
                 },
             "HP": 24,
@@ -86,6 +86,7 @@ onTurn = myPokemon
 
 def foeAttack():
    os.system('cls')
+   isPar = random.randint(1,5)
    critical = 0
    critical_count = random.randint(1,7)
    if critical_count == 1:
@@ -157,7 +158,11 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["first"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foePokemon["status"] == "SLP":
+    if foePokemon["status"] == "PAR" and isPar <= 3:
+        print("")
+        print(foePokemon["name"],"is paralyzed. He cannot move.")
+        print(input(cont))
+    elif foePokemon["status"] == "SLP":
         print("")
         print("ZzZzZ...")
         print(input(cont))
@@ -198,6 +203,16 @@ def foeAttack():
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0:
         myPokemon.update({"status" : foeSta})
+        if myPokemon["status"] == "SLP":
+           os.system('cls')
+           print(myPokemon["name"],"fell asleep.")
+           print("")
+           print(input(cont))
+        if myPokemon["status"] == "PAR":
+            os.system('cls')
+            print(myPokemon["name"],"is paralyzed. It may be unable to move.")
+            print("")
+            print(input(cont))
     elif foeAccuracy >= 7:
         print(foePokemon["name"],"used",foeAtt,"!")
         if eff == 0:
@@ -227,7 +242,11 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["second"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foePokemon["status"] == "SLP":
+    if foePokemon["status"] == "PAR" and isPar <= 3:
+        print("")
+        print(foePokemon["name"],"is paralyzed. He cannot move.")
+        print(input(cont))
+    elif foePokemon["status"] == "SLP":
         print("")
         print("ZzZzZ...")
         print(input(cont))
@@ -268,6 +287,16 @@ def foeAttack():
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0:
         myPokemon.update({"status" : foeSta})
+        if myPokemon["status"] == "SLP":
+           os.system('cls')
+           print(myPokemon["name"],"fell asleep.")
+           print("")
+           print(input(cont))
+        if myPokemon["status"] == "PAR":
+            os.system('cls')
+            print(myPokemon["name"],"is paralyzed. It may be unable to move.")
+            print("")
+            print(input(cont))
     elif foeAccuracy >= 7:
         print(foePokemon["name"],"used",foeAtt,"!")
         if eff == 0:
@@ -296,7 +325,11 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["third"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foePokemon["status"] == "SLP":
+    if foePokemon["status"] == "PAR" and isPar <= 3:
+        print("")
+        print(foePokemon["name"],"is paralyzed. He cannot move.")
+        print(input(cont))
+    elif foePokemon["status"] == "SLP":
         print("")
         print("ZzZzZ...")
         print(input(cont))
@@ -337,6 +370,16 @@ def foeAttack():
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0:
         myPokemon.update({"status" : foeSta})
+        if myPokemon["status"] == "SLP":
+           os.system('cls')
+           print(myPokemon["name"],"fell asleep.")
+           print("")
+           print(input(cont))
+        if myPokemon["status"] == "PAR":
+            os.system('cls')
+            print(myPokemon["name"],"is paralyzed. It may be unable to move.")
+            print("")
+            print(input(cont))
     elif foeAccuracy >= 7:
         print(foePokemon["name"],"used",foeAtt,"!")
         if eff == 0:
@@ -365,7 +408,11 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["fourth"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foePokemon["status"] == "SLP":
+    if foePokemon["status"] == "PAR" and isPar <= 3:
+        print("")
+        print(foePokemon["name"],"is paralyzed. He cannot move.")
+        print(input(cont))
+    elif foePokemon["status"] == "SLP":
         print("")
         print("ZzZzZ...")
         print(input(cont))
@@ -406,6 +453,16 @@ def foeAttack():
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0:
         myPokemon.update({"status" : foeSta})
+        if myPokemon["status"] == "SLP":
+           os.system('cls')
+           print(myPokemon["name"],"fell asleep.")
+           print("")
+           print(input(cont))
+        if myPokemon["status"] == "PAR":
+            os.system('cls')
+            print(myPokemon["name"],"is paralyzed. It may be unable to move.")
+            print("")
+            print(input(cont))
     elif foeAccuracy >= 7:
         print(foePokemon["name"],"used",foeAtt,"!")
         if eff == 0:
@@ -571,10 +628,10 @@ def myPokemon_attack():
     spaces_fourth = " " * (13 - len(attackname_fourth))
     attacks_count = len(myPokemon["attacks"].keys())
     if attacks_count == 4:
-        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_first,"(type:",myPokemon["attacks"]["first"][attackname_first]["type"].upper(),")")
-        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_second,"(type:",myPokemon["attacks"]["second"][attackname_second]["type"].upper(),")")
-        print(str((myPokemon["attacks"]["third"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_third,"(type:",myPokemon["attacks"]["third"][attackname_third]["type"].upper(),")")
-        print(str((myPokemon["attacks"]["fourth"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_fourth,"(type:",myPokemon["attacks"]["fourth"][attackname_fourth]["type"].upper(),")")
+        print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_first,"(type:",myPokemon["attacks"]["first"][attackname_first]["type"].upper() + ")")
+        print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_second,"(type:",myPokemon["attacks"]["second"][attackname_second]["type"].upper() + ")")
+        print(str((myPokemon["attacks"]["third"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_third,"(type:",myPokemon["attacks"]["third"][attackname_third]["type"].upper() + ")")
+        print(str((myPokemon["attacks"]["fourth"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_fourth,"(type:",myPokemon["attacks"]["fourth"][attackname_fourth]["type"].upper() + ")")
     elif attacks_count == 3:
         print(str((myPokemon["attacks"]["first"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_first,"(type:",myPokemon["attacks"]["first"][attackname_first]["type"].upper(),")")
         print(str((myPokemon["attacks"]["second"])).replace("'","").replace(":",",").replace("{","").replace("}","").split(",")[0].upper(),spaces_second,"(type:",myPokemon["attacks"]["second"][attackname_second]["type"].upper(),")")
@@ -589,15 +646,20 @@ def myPokemon_attack():
 
 def attackon(a,b):
     os.system('cls')
+    isPar = random.randint(1,5)   
     critical = 0
-    critical_count = random.randint(1,1)
+    critical_count = random.randint(1,7)
     if critical_count == 1:
         critical = 0.9
     global eff
     if b in a["first"]:
      effic(foePokemon["type"],a["first"][b]["type"])
      accuracy = a["first"][b]["acc"] + random.randint(1,6)
-     if myPokemon["status"] == "SLP":
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print("")
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print(input(cont))
+     elif myPokemon["status"] == "SLP":
         print("")
         print("ZzZzZ...")
         print(input(cont))
@@ -640,6 +702,16 @@ def attackon(a,b):
         foePokemon.update({"HP" : int((foePokemon["HP"] - (a["first"][b]["power"])*(eff + critical)))})
         if eff != 0:
             foePokemon.update({"status" : a["first"][b]["stc"]})
+            if foePokemon["status"] == "SLP":
+               os.system('cls')
+               print(foePokemon["name"],"fell asleep.")
+               print("")
+               print(input(cont))
+            if foePokemon["status"] == "PAR":
+               os.system('cls')
+               print(foePokemon["name"],"is paralyzed. It may be unable to move.")
+               print("")
+               print(input(cont))
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["first"][b]["name"],"!")
         if eff == 0:
@@ -661,7 +733,11 @@ def attackon(a,b):
     elif b in a["second"]:
      effic(foePokemon["type"],a["second"][b]["type"])
      accuracy = a["second"][b]["acc"] + random.randint(1,6)
-     if myPokemon["status"] == "SLP":
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print("")
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print(input(cont))
+     elif myPokemon["status"] == "SLP":
         print("")
         print("ZzZzZ...")
         print(input(cont))
@@ -702,6 +778,16 @@ def attackon(a,b):
         foePokemon.update({"HP" : foePokemon["HP"] - int((a["second"][b]["power"])*(eff + critical))})
         if eff != 0:
             foePokemon.update({"status" : a["second"][b]["stc"]})
+            if foePokemon["status"] == "SLP":
+               os.system('cls')
+               print(foePokemon["name"],"fell asleep.")
+               print("")
+               print(input(cont))
+            if foePokemon["status"] == "PAR":
+               os.system('cls')
+               print(foePokemon["name"],"is paralyzed. It may be unable to move.")
+               print("")
+               print(input(cont))
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["second"][b]["name"],"!")
         if eff == 0:
@@ -723,7 +809,11 @@ def attackon(a,b):
     elif b in a["third"]:
      effic(foePokemon["type"],a["third"][b]["type"])
      accuracy = a["third"][b]["acc"] + random.randint(1,6)
-     if myPokemon["status"] == "SLP":
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print("")
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print(input(cont))
+     elif myPokemon["status"] == "SLP":
         print("")
         print("ZzZzZ...")
         print(input(cont))
@@ -764,6 +854,16 @@ def attackon(a,b):
         foePokemon.update({"HP" : foePokemon["HP"] - int((a["third"][b]["power"])*(eff + critical))})
         if eff != 0:
             foePokemon.update({"status" : a["third"][b]["stc"]})
+            if foePokemon["status"] == "SLP":
+               os.system('cls')
+               print(foePokemon["name"],"fell asleep.")
+               print("")
+               print(input(cont))
+            if foePokemon["status"] == "PAR":
+               os.system('cls')
+               print(foePokemon["name"],"is paralyzed. It may be unable to move.")
+               print("")
+               print(input(cont))
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["third"][b]["name"],"!")
         if eff == 0:
@@ -785,7 +885,11 @@ def attackon(a,b):
     elif b in a["fourth"]:
      effic(foePokemon["type"],a["fourth"][b]["type"])
      accuracy = a["fourth"][b]["acc"] + random.randint(1,6)
-     if myPokemon["status"] == "SLP":
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print("")
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print(input(cont))
+     elif myPokemon["status"] == "SLP":
         print("")
         print("ZzZzZ...")
         print(input(cont))
@@ -826,6 +930,16 @@ def attackon(a,b):
         foePokemon.update({"HP" : int((foePokemon["HP"] - (a["fourth"][b]["power"])*(eff + critical)))})
         if eff != 0:
             foePokemon.update({"status" : a["fourth"][b]["stc"]})
+            if foePokemon["status"] == "SLP":
+               os.system('cls')
+               print(foePokemon["name"],"fell asleep.")
+               print("")
+               print(input(cont))
+            if foePokemon["status"] == "PAR":
+               os.system('cls')
+               print(foePokemon["name"],"is paralyzed. It may be unable to move.")
+               print("")
+               print(input(cont))
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
         if eff == 0:
