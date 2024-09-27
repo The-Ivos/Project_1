@@ -625,15 +625,15 @@ def attackon(a,b):
             foePokemon.update({"status" : a["first"][b]["stc"]})
      elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["first"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
            print("It's super effective!")
         if eff == 0.5:
             print("It's not very effective.")
-        if eff == 0:
-            print("But it didn't work.")
-            critical = 0
         # print(critical)
         print("")
         print(input("Press ENTER to continue..."))
@@ -642,14 +642,15 @@ def attackon(a,b):
             foePokemon.update({"status" : a["first"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["first"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
-           print("Its super effective!")
-        if eff == 0:
-            print("But it didn't work.")
+           print("It's super effective!")
         if eff == 0.5:
-            print("It's not very effective.")   
+            print("It's not very effective.")  
         print("")
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : int((foePokemon["HP"] - (a["first"][b]["power"])*(eff + critical)))})
@@ -667,12 +668,13 @@ def attackon(a,b):
      elif accuracy >= 7 and foePokemon["status"] == "OK" and a["second"][b]["type"] == "fire":
         burn = random.randint(1,4)
         print(myPokemon["name"], "used", a["second"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
            print("It's super effective!")
-        if eff == 0:
-            print("But it didn't work.")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
@@ -686,12 +688,13 @@ def attackon(a,b):
             foePokemon.update({"status" : a["second"][b]["stc"]})
      elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["second"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
            print("It's super effective!")
-        if eff == 0:
-            print("But it didn't work.")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
@@ -701,12 +704,13 @@ def attackon(a,b):
             foePokemon.update({"status" : a["second"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["second"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
-           print("Its super effective!")
-        if eff == 0:
-            print("But it didn't work.")
+           print("It's super effective!")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
@@ -726,12 +730,13 @@ def attackon(a,b):
      elif accuracy >= 7 and foePokemon["status"] == "OK" and a["third"][b]["type"] == "fire":
         burn = random.randint(1,4)
         print(myPokemon["name"], "used", a["third"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
            print("It's super effective!")
-        if eff == 0:
-            print("But it didn't work.")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
@@ -745,12 +750,13 @@ def attackon(a,b):
             foePokemon.update({"status" : a["third"][b]["stc"]})
      elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["third"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
            print("It's super effective!")
-        if eff == 0:
-            print("But it didn't work.")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
@@ -760,12 +766,13 @@ def attackon(a,b):
             foePokemon.update({"status" : a["third"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["third"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
-           print("Its super effective!")
-        if eff == 0:
-            print("But it didn't work.")
+           print("It's super effective!")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
@@ -785,12 +792,13 @@ def attackon(a,b):
      elif accuracy >= 7 and foePokemon["status"] == "OK" and a["fourth"][b]["type"] == "fire":
         burn = random.randint(1,4)
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
            print("It's super effective!")
-        if eff == 0:
-            print("But it didn't work.")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
@@ -804,12 +812,13 @@ def attackon(a,b):
             foePokemon.update({"status" : a["fourth"][b]["stc"]})
      elif accuracy >= 7 and foePokemon["status"] == "OK":
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
            print("It's super effective!")
-        if eff == 0:
-            print("But it didn't work.")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
@@ -819,12 +828,13 @@ def attackon(a,b):
             foePokemon.update({"status" : a["fourth"][b]["stc"]})
      elif accuracy >= 7:
         print(myPokemon["name"], "used", a["fourth"][b]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
         if critical == 0.9:
            print("It's a CRITICAL HIT!")
         if eff == 2:
-           print("Its super effective!")
-        if eff == 0:
-            print("But it didn't work.")
+           print("It's super effective!")
         if eff == 0.5:
             print("It's not very effective.")
         print("")
