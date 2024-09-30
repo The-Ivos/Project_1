@@ -12,8 +12,9 @@ Bulbasaur = {"name": "BULBASAUR",
                 "fourth" : {"sleep powder" : {"name": "SLEEP POWDER", "power": 0, "acc": 4, "stc": "SLP","type": "grass"}}
                 },
             "HP": 29,
-            "status": "OK",
-            "speed":1}
+            "status": "BRN",
+            "speed":1,
+            "confused": "YES"}
 
 Squirtle = {"name": "SQUIRTLE",
             "type": "water",
@@ -25,7 +26,8 @@ Squirtle = {"name": "SQUIRTLE",
                 },
             "HP": 25,
             "status": "OK",
-            "speed": 2}
+            "speed": 2,
+            "confused": "YES"}
 
 Pidgey = {"name": "PIDGEY",
             "type": "flying",
@@ -36,8 +38,9 @@ Pidgey = {"name": "PIDGEY",
                 "fourth" : {"wing slap" : {"name": "WING SLAP", "power": 5, "acc": 3, "stc": "OK","type": "flying"}}
                 },
             "HP": 21,
-            "status": "OK",
-            "speed": 5}
+            "status": "PAR",
+            "speed": 5,
+            "confused": "YES"}
 
 Pikachu = {"name": "PIKACHU",
             "type": "electric",
@@ -49,7 +52,8 @@ Pikachu = {"name": "PIKACHU",
                 },
             "HP": 24,
             "status": "OK",
-            "speed": 3}
+            "speed": 3,
+            "confused": "YES"}
 
 Charmander = {"name": "CHARMANDER",
             "type": "fire",
@@ -60,8 +64,9 @@ Charmander = {"name": "CHARMANDER",
                 "fourth" : {"flame wheel" : {"name": "FLAME WHEEL", "power": 5, "acc": 3, "stc": "BRN","type": "fire"}}
                 },
             "HP": 28,
-            "status": "OK"
-            ,"speed": 4}
+            "status": "OK",
+            "speed": 4,
+            "confused": "YES"}
 
 Sandshrew = {"name": "SANDSHREW",
             "type": "ground",
@@ -72,11 +77,12 @@ Sandshrew = {"name": "SANDSHREW",
                 "fourth" : {"earthquake" : {"name": "EARTHQUAKE", "power": 6, "acc": 4, "stc": "OK","type": "ground"}}
                 },
             "HP": 26,
-            "status": "OK"
-            ,"speed": 4}
+            "status": "OK",
+            "speed": 4,
+            "confused": "YES"}
 
-myPokemon = Bulbasaur
-foePokemon = Squirtle
+myPokemon = Pidgey
+foePokemon = Bulbasaur
 
 choice = [Bulbasaur["name"], Charmander["name"], Squirtle["name"], Pikachu["name"], Pidgey["name"], Sandshrew["name"]]
 
@@ -158,13 +164,32 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["first"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
+    if foePokemon["status"] == "SLP":
+        print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        main_screen()
+    if foePokemon["confused"] == "YES":
+       print(foePokemon["name"],"is confused...")
+       print("")
+       print(input(cont))
+       os.system('cls')
+       confusion = random.randint(1,3)
+       if confusion == 1:
+          print("It hurt itself in it's confusion.")
+          foePokemon["HP"] = foePokemon["HP"] - 2
+          print("")
+          print(input(cont))
+          main_screen()
+       elif confusion == 2:
+          print(foePokemon["name"],"snapped out of confusion!")
+          foePokemon["confused"] = "NO"
+          print("")
+          print(input(cont))
+          os.system('cls')
     if foePokemon["status"] == "PAR" and isPar <= 3:
         print("")
         print(foePokemon["name"],"is paralyzed. He cannot move.")
-        print(input(cont))
-    elif foePokemon["status"] == "SLP":
-        print("")
-        print("ZzZzZ...")
         print(input(cont))
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["first"][foeAtt.lower()]["type"] == "fire":
        burn = random.randint(1,4)
@@ -242,13 +267,32 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["second"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foePokemon["status"] == "PAR" and isPar <= 3:
-        print("")
-        print(foePokemon["name"],"is paralyzed. He cannot move.")
-        print(input(cont))
-    elif foePokemon["status"] == "SLP":
-        print("")
+    if foePokemon["status"] == "SLP":
         print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        main_screen()
+    if foePokemon["confused"] == "YES":
+       print(foePokemon["name"],"is confused...")
+       print("")
+       print(input(cont))
+       os.system('cls')
+       confusion = random.randint(1,3)
+       if confusion == 1:
+          print("It hurt itself in it's confusion.")
+          foePokemon["HP"] = foePokemon["HP"] - 2
+          print("")
+          print(input(cont))
+          main_screen()
+       elif confusion == 2:
+          print(foePokemon["name"],"snapped out of confusion!")
+          foePokemon["confused"] = "NO"
+          print("")
+          print(input(cont))
+          os.system('cls')
+    if foePokemon["status"] == "PAR" and isPar <= 3:
+        print(foePokemon["name"],"is paralyzed. He cannot move.")
+        print("")
         print(input(cont))
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["second"][foeAtt.lower()]["type"] == "fire":
        burn = random.randint(1,4)
@@ -325,13 +369,32 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["third"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foePokemon["status"] == "PAR" and isPar <= 3:
-        print("")
-        print(foePokemon["name"],"is paralyzed. He cannot move.")
-        print(input(cont))
-    elif foePokemon["status"] == "SLP":
-        print("")
+    if foePokemon["status"] == "SLP":
         print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        main_screen()
+    if foePokemon["confused"] == "YES":
+       print(foePokemon["name"],"is confused...")
+       print("")
+       print(input(cont))
+       os.system('cls')
+       confusion = random.randint(1,3)
+       if confusion == 1:
+          print("It hurt itself in it's confusion.")
+          foePokemon["HP"] = foePokemon["HP"] - 2
+          print("")
+          print(input(cont))
+          main_screen()
+       elif confusion == 2:
+          print(foePokemon["name"],"snapped out of confusion!")
+          foePokemon["confused"] = "NO"
+          print("")
+          print(input(cont))
+          os.system('cls')
+    if foePokemon["status"] == "PAR" and isPar <= 3:
+        print(foePokemon["name"],"is paralyzed. He cannot move.")
+        print("")
         print(input(cont))
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["third"][foeAtt.lower()]["type"] == "fire":
        burn = random.randint(1,4)
@@ -408,13 +471,32 @@ def foeAttack():
     foeSta = str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["fourth"][foeAtt.lower()]["type"])
     foeAccuracy = foeAcc + random.randint(1,6)
-    if foePokemon["status"] == "PAR" and isPar <= 3:
-        print("")
-        print(foePokemon["name"],"is paralyzed. He cannot move.")
-        print(input(cont))
-    elif foePokemon["status"] == "SLP":
-        print("")
+    if foePokemon["status"] == "SLP":
         print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        main_screen()
+    if foePokemon["confused"] == "YES":
+       print(foePokemon["name"],"is confused...")
+       print("")
+       print(input(cont))
+       os.system('cls')
+       confusion = random.randint(1,3)
+       if confusion == 1:
+          print("It hurt itself in it's confusion.")
+          foePokemon["HP"] = foePokemon["HP"] - 2
+          print("")
+          print(input(cont))
+          main_screen()
+       elif confusion == 2:
+          print(foePokemon["name"],"snapped out of confusion!")
+          foePokemon["confused"] = "NO"
+          print("")
+          print(input(cont))
+          os.system('cls')
+    if foePokemon["status"] == "PAR" and isPar <= 3:
+        print(foePokemon["name"],"is paralyzed. He cannot move.")
+        print("")
         print(input(cont))
     elif foeAccuracy >= 7 and myPokemon["status"] == "OK" and foePokemon["attacks"]["fourth"][foeAtt.lower()]["type"] == "fire":
        burn = random.randint(1,4)
@@ -655,13 +737,32 @@ def attackon(a,b):
     if b in a["first"]:
      effic(foePokemon["type"],a["first"][b]["type"])
      accuracy = a["first"][b]["acc"] + random.randint(1,6)
-     if myPokemon["status"] == "PAR" and isPar <= 3:
-        print("")
-        print(myPokemon["name"],"is paralyzed. He cannot move.")
-        print(input(cont))
-     elif myPokemon["status"] == "SLP":
-        print("")
+     if myPokemon["status"] == "SLP":
         print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        foeAttack()
+     if myPokemon["confused"] == "YES":
+        print(myPokemon["name"],"is confused...")
+        print("")
+        print(input(cont))
+        os.system('cls')
+        confusion = random.randint(1,3)
+        if confusion == 1:
+           print("It hurt itself in it's confusion.")
+           print("")
+           myPokemon["HP"] = myPokemon["HP"] - 2
+           print(input(cont))
+           foeAttack()
+        elif confusion == 2:
+           print(myPokemon["name"],"snapped out of confusion!")
+           myPokemon["confused"] = "NO"        
+           print("")
+           print(input(cont))  
+           os.system('cls') 
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print("")
         print(input(cont))
      elif accuracy >= 7 and foePokemon["status"] == "OK" and a["first"][b]["type"] == "fire":
         burn = random.randint(1,4)
@@ -733,13 +834,32 @@ def attackon(a,b):
     elif b in a["second"]:
      effic(foePokemon["type"],a["second"][b]["type"])
      accuracy = a["second"][b]["acc"] + random.randint(1,6)
-     if myPokemon["status"] == "PAR" and isPar <= 3:
-        print("")
-        print(myPokemon["name"],"is paralyzed. He cannot move.")
-        print(input(cont))
-     elif myPokemon["status"] == "SLP":
-        print("")
+     if myPokemon["status"] == "SLP":
         print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        foeAttack()
+     if myPokemon["confused"] == "YES":
+        print(myPokemon["name"],"is confused...")
+        print("")
+        print(input(cont))
+        os.system('cls')
+        confusion = random.randint(1,3)
+        if confusion == 1:
+           print("It hurt itself in it's confusion.")
+           print("")
+           myPokemon["HP"] = myPokemon["HP"] - 2
+           print(input(cont))
+           foeAttack()
+        elif confusion == 2:
+           print(myPokemon["name"],"snapped out of confusion!")
+           myPokemon["confused"] = "NO"        
+           print("")
+           print(input(cont))  
+           os.system('cls') 
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print("")
         print(input(cont))
      elif accuracy >= 7 and foePokemon["status"] == "OK" and a["second"][b]["type"] == "fire":
         burn = random.randint(1,4)
@@ -809,13 +929,32 @@ def attackon(a,b):
     elif b in a["third"]:
      effic(foePokemon["type"],a["third"][b]["type"])
      accuracy = a["third"][b]["acc"] + random.randint(1,6)
-     if myPokemon["status"] == "PAR" and isPar <= 3:
-        print("")
-        print(myPokemon["name"],"is paralyzed. He cannot move.")
-        print(input(cont))
-     elif myPokemon["status"] == "SLP":
-        print("")
+     if myPokemon["status"] == "SLP":
         print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        foeAttack()
+     if myPokemon["confused"] == "YES":
+        print(myPokemon["name"],"is confused...")
+        print("")
+        print(input(cont))
+        os.system('cls')
+        confusion = random.randint(1,3)
+        if confusion == 1:
+           print("It hurt itself in it's confusion.")
+           print("")
+           myPokemon["HP"] = myPokemon["HP"] - 2
+           print(input(cont))
+           foeAttack()
+        elif confusion == 2:
+           print(myPokemon["name"],"snapped out of confusion!")
+           myPokemon["confused"] = "NO"        
+           print("")
+           print(input(cont))  
+           os.system('cls') 
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print("")
         print(input(cont))
      elif accuracy >= 7 and foePokemon["status"] == "OK" and a["third"][b]["type"] == "fire":
         burn = random.randint(1,4)
@@ -885,13 +1024,32 @@ def attackon(a,b):
     elif b in a["fourth"]:
      effic(foePokemon["type"],a["fourth"][b]["type"])
      accuracy = a["fourth"][b]["acc"] + random.randint(1,6)
-     if myPokemon["status"] == "PAR" and isPar <= 3:
-        print("")
-        print(myPokemon["name"],"is paralyzed. He cannot move.")
-        print(input(cont))
-     elif myPokemon["status"] == "SLP":
-        print("")
+     if myPokemon["status"] == "SLP":
         print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        foeAttack()
+     if myPokemon["confused"] == "YES":
+        print(myPokemon["name"],"is confused...")
+        print("")
+        print(input(cont))
+        os.system('cls')
+        confusion = random.randint(1,3)
+        if confusion == 1:
+           print("It hurt itself in it's confusion.")
+           print("")
+           myPokemon["HP"] = myPokemon["HP"] - 2
+           print(input(cont))
+           foeAttack()
+        elif confusion == 2:
+           print(myPokemon["name"],"snapped out of confusion!")
+           myPokemon["confused"] = "NO"        
+           print("")
+           print(input(cont))  
+           os.system('cls') 
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print("")
         print(input(cont))
      elif accuracy >= 7 and foePokemon["status"] == "OK" and a["fourth"][b]["type"] == "fire":
         burn = random.randint(1,4)
@@ -1032,7 +1190,7 @@ def choose():
 
 os.system('cls')    
 
-choose()
+#choose()
 
 myCritLife = myPokemon["HP"]
 foeCritlife = foePokemon["HP"]
