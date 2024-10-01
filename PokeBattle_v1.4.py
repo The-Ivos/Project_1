@@ -3,26 +3,39 @@ import os
 
 os.system('cls')
 
+Abra = {"name": "ABRA",
+            "type": "psychic",
+            "attacks": {
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal","CNF":"NO"}}, 
+                "second" : {"confusion" : {"name": "CONFUSION", "power": 0, "acc": 4, "stc": "OK","type": "psychic","CNF":"YES"}},
+                "third" : {"hypnosis" : {"name": "HYPNOSIS", "power": 0, "acc": 4, "stc": "SLP","type": "psychic","CNF":"NO"}},
+                "fourth" : {"psychic" : {"name": "PSYCHIC", "power": 5, "acc": 4, "stc": "OK","type": "psychic","CNF":"NO"}}
+                },
+            "HP": 25,
+            "status": "OK",
+            "speed":5,
+            "confused": "NO"}
+
 Bulbasaur = {"name": "BULBASAUR",
             "type": "grass",
             "attacks": {
                 "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal","CNF":"NO"}}, 
-                "second" : {"vine whip" : {"name": "VINE WHIP", "power": 4, "acc": 5, "stc": "OK","type": "grass","CNF":"YES"}},
+                "second" : {"vine whip" : {"name": "VINE WHIP", "power": 4, "acc": 5, "stc": "OK","type": "grass","CNF":"NO"}},
                 "third" : {"poison powder" : {"name": "POISON POWDER", "power": 0, "acc": 4, "stc": "PSN","type": "poison","CNF":"NO"}},
-                "fourth" : {"sleep powder" : {"name": "SLEEP POWDER", "power": 0, "acc": 4, "stc": "SLP","type": "grass","CNF":"YES"}}
+                "fourth" : {"sleep powder" : {"name": "SLEEP POWDER", "power": 0, "acc": 4, "stc": "SLP","type": "grass","CNF":"NO"}}
                 },
             "HP": 29,
-            "status": "BRN",
+            "status": "OK",
             "speed":1,
             "confused": "NO"}
 
 Squirtle = {"name": "SQUIRTLE",
             "type": "water",
             "attacks": {
-                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
-                "second" : {"bubble" : {"name": "BUBBLE", "power": 4, "acc": 5, "stc": "OK","type": "water"}},
-                "third" : {"water gun" : {"name": "WATER GUN", "power": 5, "acc": 4, "stc": "OK","type": "water"}},
-                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 3, "stc": "OK","type": "normal"}}
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal","CNF":"NO"}}, 
+                "second" : {"bubble" : {"name": "BUBBLE", "power": 4, "acc": 5, "stc": "OK","type": "water","CNF":"NO"}},
+                "third" : {"water gun" : {"name": "WATER GUN", "power": 5, "acc": 4, "stc": "OK","type": "water","CNF":"NO"}},
+                "fourth" : {"skull bash" : {"name": "SKULL BASH", "power": 7, "acc": 3, "stc": "OK","type": "normal","CNF":"NO"}}
                 },
             "HP": 25,
             "status": "OK",
@@ -33,9 +46,9 @@ Pidgey = {"name": "PIDGEY",
             "type": "flying",
             "attacks": {
                 "first" : {"gust" : {"name": "GUST", "power": 3, "acc": 5, "stc": "OK","type": "flying","CNF": "NO"}}, 
-                "second" : {"confusion" : {"name": "CONFUSION", "power": 0, "acc": 6, "stc": "OK","type": "flying","CNF":"YES"}},
+                "second" : {"wing slap" : {"name": "WING SLAP", "power": 4, "acc": 4, "stc": "OK","type": "flying","CNF":"NO"}},
                 "third" : {"sing" : {"name": "SING", "power": 0, "acc": 4, "stc": "SLP","type": "normal", "CNF": "NO"}},
-                "fourth" : {"wing slap" : {"name": "WING SLAP", "power": 5, "acc": 3, "stc": "OK","type": "flying","CNF":"YES"}}
+                "fourth" : {"whirlwind" : {"name": "WHIRLWIND", "power": 2, "acc": 3, "stc": "OK","type": "flying","CNF":"YES"}}
                 },
             "HP": 21,
             "status": "OK",
@@ -45,10 +58,10 @@ Pidgey = {"name": "PIDGEY",
 Pikachu = {"name": "PIKACHU",
             "type": "electric",
             "attacks": {
-                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
-                "second" : {"thundershock" : {"name": "THUNDERSHOCK", "power": 4, "acc": 5, "stc": "OK","type": "electric"}},
-                "third" : {"thunder wave" : {"name": "THUNDER WAVE", "power": 0, "acc": 4, "stc": "PAR","type": "electric"}},
-                "fourth" : {"toxic" : {"name": "TOXIC", "power": 1, "acc": 4, "stc": "PSN","type": "poison"}}
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal","CNF":"NO"}}, 
+                "second" : {"thundershock" : {"name": "THUNDERSHOCK", "power": 4, "acc": 5, "stc": "OK","type": "electric","CNF":"NO"}},
+                "third" : {"thunder wave" : {"name": "THUNDER WAVE", "power": 0, "acc": 4, "stc": "PAR","type": "electric","CNF":"NO"}},
+                "fourth" : {"toxic" : {"name": "TOXIC", "power": 1, "acc": 4, "stc": "PSN","type": "poison","CNF":"NO"}}
                 },
             "HP": 24,
             "status": "OK",
@@ -58,10 +71,10 @@ Pikachu = {"name": "PIKACHU",
 Charmander = {"name": "CHARMANDER",
             "type": "fire",
             "attacks": {
-                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
-                "second" : {"ember" : {"name": "EMBER", "power": 3, "acc": 5, "stc": "BRN","type": "fire"}},
-                "third" : {"bite" : {"name": "BITE", "power": 4, "acc": 4, "stc": "OK","type": "dark"}},
-                "fourth" : {"flame wheel" : {"name": "FLAME WHEEL", "power": 5, "acc": 3, "stc": "BRN","type": "fire"}}
+                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 5, "stc": "OK","type": "normal","CNF":"NO"}}, 
+                "second" : {"ember" : {"name": "EMBER", "power": 3, "acc": 5, "stc": "BRN","type": "fire","CNF":"NO"}},
+                "third" : {"bite" : {"name": "BITE", "power": 4, "acc": 4, "stc": "OK","type": "dark","CNF":"NO"}},
+                "fourth" : {"flame wheel" : {"name": "FLAME WHEEL", "power": 5, "acc": 3, "stc": "BRN","type": "fire","CNF":"NO"}}
                 },
             "HP": 28,
             "status": "OK",
@@ -71,10 +84,10 @@ Charmander = {"name": "CHARMANDER",
 Sandshrew = {"name": "SANDSHREW",
             "type": "ground",
             "attacks": {
-                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
-                "second" : {"rock throw" : {"name": "ROCK THROW", "power": 3, "acc": 5, "stc": "OK","type": "rock"}},
-                "third" : {"mud-slap" : {"name": "MUD-SLAP", "power": 3, "acc": 5, "stc": "OK","type": "ground"}},
-                "fourth" : {"earthquake" : {"name": "EARTHQUAKE", "power": 6, "acc": 4, "stc": "OK","type": "ground"}}
+                "first" : {"scratch" : {"name": "SCRATCH", "power": 3, "acc": 5, "stc": "OK","type": "normal","CNF":"NO"}}, 
+                "second" : {"rock throw" : {"name": "ROCK THROW", "power": 3, "acc": 5, "stc": "OK","type": "rock","CNF":"NO"}},
+                "third" : {"mud-slap" : {"name": "MUD-SLAP", "power": 3, "acc": 5, "stc": "OK","type": "ground","CNF":"NO"}},
+                "fourth" : {"earthquake" : {"name": "EARTHQUAKE", "power": 6, "acc": 4, "stc": "OK","type": "ground","CNF":"NO"}}
                 },
             "HP": 26,
             "status": "OK",
@@ -84,7 +97,7 @@ Sandshrew = {"name": "SANDSHREW",
 myPokemon = Pidgey
 foePokemon = Bulbasaur
 
-choice = [Bulbasaur["name"], Charmander["name"], Squirtle["name"], Pikachu["name"], Pidgey["name"], Sandshrew["name"]]
+choice = [Bulbasaur["name"], Charmander["name"], Squirtle["name"], Pikachu["name"], Pidgey["name"], Sandshrew["name"], Abra["name"]]
 
 cont = "Press ENTER to continue..."
 
@@ -1335,6 +1348,8 @@ def choose():
        myPokemon = Pidgey
     elif myPokemon == "PIKACHU":
        myPokemon = Pikachu
+    elif myPokemon == "ABRA":
+       myPokemon = Abra
     else:
        choose()
     os.system('cls')
@@ -1365,6 +1380,9 @@ def choose():
     elif foePokemon == "PIKACHU":
        foePokemon = Pikachu
        print("You have chosen",foePokemon["type"],"pokemon",foePokemon["name"],"for your rival.")
+    elif foePokemon == "ABRA":
+       foePokemon = Abra
+       print("You have chosen",foePokemon["type"],"pokemon",foePokemon["name"],"for your rival.")
     else:
        print("Rival then has chosen his pokemon by his own.")
        print(input(cont))
@@ -1386,7 +1404,7 @@ def choose():
 
 os.system('cls')    
 
-#choose()
+choose()
 
 myCritLife = myPokemon["HP"]
 foeCritlife = foePokemon["HP"]
