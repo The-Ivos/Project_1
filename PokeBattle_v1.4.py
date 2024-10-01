@@ -6,15 +6,15 @@ os.system('cls')
 Bulbasaur = {"name": "BULBASAUR",
             "type": "grass",
             "attacks": {
-                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal"}}, 
-                "second" : {"vine whip" : {"name": "VINE WHIP", "power": 4, "acc": 5, "stc": "OK","type": "grass"}},
-                "third" : {"poison powder" : {"name": "POISON POWDER", "power": 0, "acc": 4, "stc": "PSN","type": "poison"}},
-                "fourth" : {"sleep powder" : {"name": "SLEEP POWDER", "power": 0, "acc": 4, "stc": "SLP","type": "grass"}}
+                "first" : {"tackle" : {"name": "TACKLE", "power": 3, "acc": 5, "stc": "OK","type": "normal","CNF":"NO"}}, 
+                "second" : {"vine whip" : {"name": "VINE WHIP", "power": 4, "acc": 5, "stc": "OK","type": "grass","CNF":"YES"}},
+                "third" : {"poison powder" : {"name": "POISON POWDER", "power": 0, "acc": 4, "stc": "PSN","type": "poison","CNF":"NO"}},
+                "fourth" : {"sleep powder" : {"name": "SLEEP POWDER", "power": 0, "acc": 4, "stc": "SLP","type": "grass","CNF":"YES"}}
                 },
             "HP": 29,
             "status": "BRN",
             "speed":1,
-            "confused": "YES"}
+            "confused": "NO"}
 
 Squirtle = {"name": "SQUIRTLE",
             "type": "water",
@@ -32,15 +32,15 @@ Squirtle = {"name": "SQUIRTLE",
 Pidgey = {"name": "PIDGEY",
             "type": "flying",
             "attacks": {
-                "first" : {"gust" : {"name": "GUST", "power": 3, "acc": 5, "stc": "OK","type": "flying"}}, 
-                "second" : {"peck" : {"name": "PECK", "power": 4, "acc": 5, "stc": "OK","type": "flying"}},
-                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 4, "stc": "SLP","type": "normal"}},
-                "fourth" : {"wing slap" : {"name": "WING SLAP", "power": 5, "acc": 3, "stc": "OK","type": "flying"}}
+                "first" : {"gust" : {"name": "GUST", "power": 3, "acc": 5, "stc": "OK","type": "flying","CNF": "NO"}}, 
+                "second" : {"confusion" : {"name": "CONFUSION", "power": 0, "acc": 6, "stc": "OK","type": "flying","CNF":"YES"}},
+                "third" : {"sing" : {"name": "SING", "power": 0, "acc": 4, "stc": "SLP","type": "normal", "CNF": "NO"}},
+                "fourth" : {"wing slap" : {"name": "WING SLAP", "power": 5, "acc": 3, "stc": "OK","type": "flying","CNF":"YES"}}
                 },
             "HP": 21,
-            "status": "PAR",
+            "status": "OK",
             "speed": 5,
-            "confused": "YES"}
+            "confused": "NO"}
 
 Pikachu = {"name": "PIKACHU",
             "type": "electric",
@@ -160,6 +160,7 @@ def foeAttack():
     foeAtt = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[5]
     foeAcc = int(str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[10])
     foePwr = int(str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[8])
+    foeCnf = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[21]
     foeTyp = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[17]
     foeSta = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["first"][foeAtt.lower()]["type"])
@@ -205,6 +206,14 @@ def foeAttack():
         print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
+       if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0 and burn == 1:
         os.system('cls')
@@ -225,6 +234,14 @@ def foeAttack():
         print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
+       if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0:
         myPokemon.update({"status" : foeSta})
@@ -251,6 +268,14 @@ def foeAttack():
          print("It's not very effective.") 
         print("")
         print(input("Press ENTER to continue..."))
+        if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
     else:
         print(foePokemon["name"],"used",foeAtt,"! But...")
@@ -263,6 +288,7 @@ def foeAttack():
     foeAtt = str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[5]
     foeAcc = int(str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[10])
     foePwr = int(str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[8])
+    foeCnf = str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[21]
     foeTyp = str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[17]
     foeSta = str(foePokemon["attacks"]["second"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["second"][foeAtt.lower()]["type"])
@@ -308,6 +334,14 @@ def foeAttack():
          print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
+       if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0 and burn == 1:
         os.system('cls')
@@ -328,6 +362,14 @@ def foeAttack():
         print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
+       if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0:
         myPokemon.update({"status" : foeSta})
@@ -354,6 +396,14 @@ def foeAttack():
           print("It's not very effective.") 
         print("")
         print(input("Press ENTER to continue..."))
+        if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
     else:
         print(foePokemon["name"],"used",foeAtt,"! But...")
@@ -365,6 +415,7 @@ def foeAttack():
     foeAtt = str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[5]
     foeAcc = int(str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[10])
     foePwr = int(str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[8])
+    foeCnf = str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[21]
     foeTyp = str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[17]
     foeSta = str(foePokemon["attacks"]["third"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["third"][foeAtt.lower()]["type"])
@@ -410,6 +461,14 @@ def foeAttack():
          print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
+       if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0 and burn == 1:
         os.system('cls')
@@ -430,6 +489,14 @@ def foeAttack():
          print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
+       if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0:
         myPokemon.update({"status" : foeSta})
@@ -456,6 +523,14 @@ def foeAttack():
           print("It's not very effective.") 
         print("")
         print(input("Press ENTER to continue..."))
+        if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
     else:
         print(foePokemon["name"],"used",foeAtt,"! But...")
@@ -467,6 +542,7 @@ def foeAttack():
     foeAtt = str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[5]
     foeAcc = int(str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[10])
     foePwr = int(str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[8])
+    foeCnf = str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[21]
     foeTyp = str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[17]
     foeSta = str(foePokemon["attacks"]["fourth"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[13]
     effic(myPokemon["type"],foePokemon["attacks"]["fourth"][foeAtt.lower()]["type"])
@@ -512,6 +588,14 @@ def foeAttack():
           print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
+       if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0 and burn == 1:
         os.system('cls')
@@ -532,6 +616,14 @@ def foeAttack():
          print("It's not very effective.") 
        print("")
        print(input("Press ENTER to continue..."))
+       if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
        myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
        if eff != 0:
         myPokemon.update({"status" : foeSta})
@@ -558,6 +650,14 @@ def foeAttack():
          print("It's not very effective.") 
         print("")
         print(input("Press ENTER to continue..."))
+        if foeCnf == "YES":
+         myPokemon["confused"] = "YES"
+         if myPokemon["confused"] == "YES":
+            os.system('cls')
+            print(myPokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         myPokemon.update({"HP" : myPokemon["HP"] - int(foePwr*(eff + critical))})
     else:
         print(foePokemon["name"],"used",foeAtt,"! But...")
@@ -780,6 +880,14 @@ def attackon(a,b):
         print("")
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : foePokemon["HP"] - int((a["first"][b]["power"])*(eff + critical))})
+        if a["first"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         if eff != 0 and burn == 1:
             os.system('cls')
             print(foePokemon["name"],"is burning!")
@@ -801,6 +909,14 @@ def attackon(a,b):
         print("")
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : int((foePokemon["HP"] - (a["first"][b]["power"])*(eff + critical)))})
+        if a["first"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         if eff != 0:
             foePokemon.update({"status" : a["first"][b]["stc"]})
             if foePokemon["status"] == "SLP":
@@ -827,6 +943,14 @@ def attackon(a,b):
         print("")
         print(input("Press ENTER to continue..."))
         foePokemon.update({"HP" : int((foePokemon["HP"] - (a["first"][b]["power"])*(eff + critical)))})
+        if a["first"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
      else:
         print(myPokemon["name"],"attack missed!")
         print("")
@@ -875,6 +999,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["second"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : foePokemon["HP"] - int((a["second"][b]["power"])*(eff + critical))})
         if eff != 0 and burn == 1:
             os.system('cls')
@@ -895,6 +1027,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["second"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : foePokemon["HP"] - int((a["second"][b]["power"])*(eff + critical))})
         if eff != 0:
             foePokemon.update({"status" : a["second"][b]["stc"]})
@@ -921,6 +1061,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["second"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : int(foePokemon["HP"] - (a["second"][b]["power"])*(eff + critical))})
      else:
         print(myPokemon["name"],"attack missed!")
@@ -970,6 +1118,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["third"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : foePokemon["HP"] - int((a["third"][b]["power"])*(eff + critical))})
         if eff != 0 and burn == 1:
             os.system('cls')
@@ -990,6 +1146,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["third"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : foePokemon["HP"] - int((a["third"][b]["power"])*(eff + critical))})
         if eff != 0:
             foePokemon.update({"status" : a["third"][b]["stc"]})
@@ -1016,6 +1180,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["third"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : int(foePokemon["HP"] - (a["third"][b]["power"])*(eff + critical))})
      else:
         print(myPokemon["name"],"attack missed!")
@@ -1065,6 +1237,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["fourth"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : foePokemon["HP"] - int((a["fourth"][b]["power"])*(eff + critical))})
         if eff != 0 and burn == 1:
             os.system('cls')
@@ -1085,6 +1265,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["fourth"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : int((foePokemon["HP"] - (a["fourth"][b]["power"])*(eff + critical)))})
         if eff != 0:
             foePokemon.update({"status" : a["fourth"][b]["stc"]})
@@ -1111,6 +1299,14 @@ def attackon(a,b):
             print("It's not very effective.")
         print("")
         print(input("Press ENTER to continue..."))
+        if a["fourth"][b]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
         foePokemon.update({"HP" : int(foePokemon["HP"] - (a["fourth"][b]["power"])*(eff + critical))})
      else:
         print(myPokemon["name"],"attack missed!")
