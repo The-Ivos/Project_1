@@ -1,2 +1,5 @@
-print(27 ** (1/3))
+if "r" in "kokot":
+    print("its there!")
+else:
+    print("its not")
 

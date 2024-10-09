@@ -39,6 +39,8 @@ user = True
 users = {"bob":"123", "ann":"pass123","mike":"password123","liz":"pass123"}
 oddelovac = "-" * 40
 
+punctuation = ".,!:"
+
 user = input("username: ")
 if user == "":
     user = "anonymus"
