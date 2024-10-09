@@ -40,7 +40,7 @@ Squirtle = {"name": "SQUIRTLE",
             "HP": 25,
             "status": "OK",
             "speed": 2,
-            "confused": "YES"}
+            "confused": "NO"}
 
 Pidgey = {"name": "PIDGEY",
             "type": "flying",
@@ -66,7 +66,7 @@ Pikachu = {"name": "PIKACHU",
             "HP": 24,
             "status": "OK",
             "speed": 3,
-            "confused": "YES"}
+            "confused": "NO"}
 
 Charmander = {"name": "CHARMANDER",
             "type": "fire",
@@ -79,7 +79,7 @@ Charmander = {"name": "CHARMANDER",
             "HP": 28,
             "status": "OK",
             "speed": 4,
-            "confused": "YES"}
+            "confused": "NO"}
 
 Sandshrew = {"name": "SANDSHREW",
             "type": "ground",
@@ -92,7 +92,7 @@ Sandshrew = {"name": "SANDSHREW",
             "HP": 26,
             "status": "OK",
             "speed": 4,
-            "confused": "YES"}
+            "confused": "NO"}
 
 myPokemon = Pidgey
 foePokemon = Bulbasaur
@@ -1325,6 +1325,126 @@ def attackon(a,b):
         print(myPokemon["name"],"attack missed!")
         print("")
         print(input("Press ENTER to continue..."))
+    else:
+     effic(foePokemon["type"],a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["type"])
+     accuracy = a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["acc"] + random.randint(1,6)
+     if myPokemon["status"] == "SLP":
+        print("ZzZzZ...")
+        print("")
+        print(input(cont))
+        foeAttack()
+     if myPokemon["confused"] == "YES":
+        print(myPokemon["name"],"is confused...")
+        print("")
+        print(input(cont))
+        os.system('cls')
+        confusion = random.randint(1,3)
+        if confusion == 1:
+           print("It hurt itself in it's confusion.")
+           print("")
+           myPokemon["HP"] = myPokemon["HP"] - 2
+           print(input(cont))
+           foeAttack()
+        elif confusion == 2:
+           print(myPokemon["name"],"snapped out of confusion!")
+           myPokemon["confused"] = "NO"        
+           print("")
+           print(input(cont))  
+           os.system('cls') 
+     if myPokemon["status"] == "PAR" and isPar <= 3:
+        print(myPokemon["name"],"is paralyzed. He cannot move.")
+        print("")
+        print(input(cont))
+     elif accuracy >= 7 and foePokemon["status"] == "OK" and a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["type"] == "fire":
+        burn = random.randint(1,4)
+        print(myPokemon["name"], "used", a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")
+        ]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
+        if critical == 0.9:
+           print("It's a CRITICAL HIT!")
+        if eff == 2:
+           print("It's super effective!")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print("")
+        print(input("Press ENTER to continue..."))
+        if a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
+        foePokemon.update({"HP" : foePokemon["HP"] - int((a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["power"])*(eff + critical))})
+        if eff != 0 and burn == 1:
+            os.system('cls')
+            print(foePokemon["name"],"is burning!")
+            print("")
+            print(input(cont))
+            foePokemon.update({"status" : a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["stc"]})
+     elif accuracy >= 7 and foePokemon["status"] == "OK":
+        print(myPokemon["name"], "used", a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
+        if critical == 0.9:
+           print("It's a CRITICAL HIT!")
+        if eff == 2:
+           print("It's super effective!")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print("")
+        print(input("Press ENTER to continue..."))
+        if a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
+        foePokemon.update({"HP" : int((foePokemon["HP"] - (a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["power"])*(eff + critical)))})
+        if eff != 0:
+            foePokemon.update({"status" : a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["stc"]})
+            if foePokemon["status"] == "SLP":
+               os.system('cls')
+               print(foePokemon["name"],"fell asleep.")
+               print("")
+               print(input(cont))
+            if foePokemon["status"] == "PAR":
+               os.system('cls')
+               print(foePokemon["name"],"is paralyzed. It may be unable to move.")
+               print("")
+               print(input(cont))
+     elif accuracy >= 7:
+        print(myPokemon["name"], "used", a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["name"],"!")
+        if eff == 0:
+            print("But it didn't work.")
+            critical = 0
+        if critical == 0.9:
+           print("It's a CRITICAL HIT!")
+        if eff == 2:
+           print("It's super effective!")
+        if eff == 0.5:
+            print("It's not very effective.")
+        print("")
+        print(input("Press ENTER to continue..."))
+        if a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["CNF"] == "YES":
+         foePokemon["confused"] = "YES"
+         if foePokemon["confused"] == "YES":
+            os.system('cls')
+            print(foePokemon["name"],"feels very disoriented.")
+            print("")
+            print(input(cont))
+            os.system('cls')
+        foePokemon.update({"HP" : int(foePokemon["HP"] - (a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["power"])*(eff + critical))})
+     else:
+        print(myPokemon["name"],"attack missed!")
+        print("")
+        print(input("Press ENTER to continue..."))
     eff = 1   
     foeAttack()     
 
@@ -1334,7 +1454,8 @@ def attackon(a,b):
 def choose():
     global myPokemon
     global foePokemon
-    print(str(choice).replace("'","").replace("]","").replace("[",""))
+    print(str(choice).replace("'","").replace("]","").replace("["," ").replace(",","\n"))
+    print("")
     myPokemon = input("Choose your pokemon from the list above. ").upper()
     if myPokemon == "CHARMANDER":
        myPokemon = Charmander
@@ -1360,7 +1481,8 @@ def choose():
     os.system('cls')
     rival_list = choice.copy()
     rival_list.remove(myPokemon["name"])
-    print(str(rival_list).replace("'","").replace("]","").replace("[",""))
+    print(str(rival_list).replace("'","").replace("]","").replace("["," ").replace(",","\n"))
+    print("")
     foePokemon = input("Choose your rival's pokemon from the list above. ").upper()
     if foePokemon == "CHARMANDER":
        foePokemon = Charmander
@@ -1399,6 +1521,8 @@ def choose():
            foePokemon = Sandshrew
        elif foePokemon == "PIKACHU":
            foePokemon = Pikachu
+       elif foePokemon == "ABRA":
+           foePokemon = Abra    
        print("Rival has chosen",foePokemon["type"],"pokemon",foePokemon["name"],"!") 
     print(input(cont))
 

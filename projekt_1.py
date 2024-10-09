@@ -50,13 +50,43 @@ while user:
         print("We have 3 texts to be analyzed.")
         print(oddelovac)
         choice = int(input("Enter a number btw. 1 and 3 to select: ")) -1
+        print(oddelovac)
         if choice not in range(3):
             print("Option",choice,"doesnt exist, terminating program...")
             break
         else:
             texttoex = TEXTS[choice]
-            wordcount = len(texttoex.split())
+            
+            splittedtext = texttoex.split()
+            # WORDCOUNT
+            wordcount = len(splittedtext)
             print("There are", wordcount ,"words in the selected text.")
+            
+            # TITLES
+            titles = []
+            for i in splittedtext:
+                if i[0].isupper():
+                    titles.append(i)
+            print("There are",(len(titles)),"titlecase words.")
+
+            # UPPERCASE WORDS
+            uppercases = []
+            for i in splittedtext:
+                if i == i.upper() and not i.isnumeric():
+                    uppercases.append(i)
+            print("There are",len(uppercases),"uppercase words.")
+                                                                   
+            print(uppercases)
+
+            # LOWERCASE WORDS
+            lowercases = []
+            for i in splittedtext:
+                if i == i.lower() and not i.isnumeric():
+                    lowercases.append(i)
+            print(splittedtext)
+            print(lowercases)
+            print("There are",len(lowercases),"lowercase words.")
+
     elif user in users and password != users[user]:
         print("Wrong password, terminating the program...")  
         user = False  

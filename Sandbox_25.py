@@ -13,6 +13,6 @@ Bulbasaur = {"name": "BULBASAUR",
 
 foePokemon = Bulbasaur
 
-foeCnf = str(foePokemon["attacks"]["first"]).replace(":","").replace(",","").replace("{","").replace("}","").split("'")[21]
+attack = str(foePokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")
 
-print(foeCnf)
+print(attack)

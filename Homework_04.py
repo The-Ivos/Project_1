@@ -112,7 +112,7 @@ zamestnanci = zamestnanci_raw.removeprefix("\n").removesuffix("\n").split("\n")
 for i in range(len(zamestnanci)):
     info = zamestnanci[i].split(" ")
     infocard = {
-        info[0]+ " " + info[1]:{"email" : (info[0][0]+"."+info[1]+"@firma.cz").lower(),
+        info[0]+ " " + info[1]:{"email" : (info[0][0]+"."+info[1]+"@firma.cz").lower().replace("ě","e").replace("š","s").replace("č","c").replace("ř","r").replace("ž","z").replace("ý","y").replace("á","a").replace("í","i").replace("é","e"),
                                 "krestni_jmeno" : info[0],
                                 "prijmeni" : info[1]
                                 }
