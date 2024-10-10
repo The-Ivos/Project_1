@@ -69,10 +69,6 @@ while user:
             # TEXT TO LIST
             splittedtext = texttoex.split()
 
-            # TEXT WITHOUT PUNCTUATION
-            nopuncttext = texttoex.replace(","," ").replace("."," ").replace("!"," ").replace(";"," ").replace(":"," ").replace("?"," ").split()
-
-
             # LIST TEXT WITHOUT ANY NUMBERS
             total_numberlesstext = splittedtext.copy()
             to_remove = set()
@@ -129,54 +125,6 @@ while user:
             summednums = sum(numstosum)
             print("The sum of all the numbers:",summednums)
 
-            # STARS
-            stars_dict = {}
-            stars_dict_big = {}
-
-            for i in nopuncttext:
-                if len(str(i)) < 10:
-                    stars_dict[len(str(i))] = 0
-                else:
-                    stars_dict_big[len(str(i))] = 0
-
-            dict_to_comp = list(stars_dict)
-            dict_to_comp_big = list(stars_dict_big)
-
-            for i in nopuncttext:
-                for j in dict_to_comp:
-                    if len(str(i)) == j:
-                        stars_dict[len(str(i))] += 1
-                    
-            for i in nopuncttext:
-                for j in dict_to_comp_big:
-                    if len(str(i)) == j:
-                        stars_dict_big[len(str(i))] += 1
-
-            pre_stars = list(stars_dict.items())
-            pre_stars_big = list(stars_dict_big.items())
-
-            abeceda = []
-            for i,b in pre_stars:
-                adda = str((3 - len(str(i))) * " ") + str(i) + "|" + str(b * "*") + str((14 - b)*" ") + "|" + str(b)
-                abeceda.append(adda)
-
-            abeceda_big = []
-            for i,b in pre_stars_big:
-                adda = str((3 - len(str(i))) * " ") + str(i) + "|" + str(b * "*") + str((14 - b)*" ") + "|" + str(b)
-                abeceda_big.append(adda)
-
-            sorted_abc = sorted(abeceda)
-            sorted_abc_big = sorted(abeceda_big)
-
-            print(oddelovac)
-            print("LEN|  OCCURENCES  |NR.")
-            print(oddelovac)
-
-            for i in sorted_abc:
-                print(str(i).replace("'","").replace(",","").strip("()"))
-
-            for i in sorted_abc_big:
-                print(str(i).replace("'","").replace(",","").strip("()"))
                 
 
     # WRONG PASSWORD
