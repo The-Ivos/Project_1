@@ -31,7 +31,9 @@ are found in multiple limestone layers, which lie some
 represent several varieties of perch, as well as
 other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
-garpike and stingray are also present.'''
+garpike and stingray are also present.''',
+'''Toto je zase muj UPPERCASE text navic, kterej si pak pekne smazu. Chce
+To ale pridat nejaky cisla. Jako treba 25. 98 nebo 539221'''
 ]
 
 user = True
@@ -50,15 +52,15 @@ while user:
     if (password := input("password: ")) == users.get(user):
         print(oddelovac)
         print("Welcome to the app,",user)
-        print("We have 3 texts to be analyzed.")
+        print("We have " + str(len(TEXTS)) + " texts to be analyzed.")
         print(oddelovac)
         
         # TEXT CHOICE
-        choice = int(input("Enter a number btw. 1 and 3 to select: ")) -1
+        choice = int(input("Enter a number btw. 1 and " + str(len(TEXTS)) + " to select: ")) -1
         print(oddelovac)
 
         # TEXT CHOICE DOESNT EXIST
-        if choice not in range(3):
+        if choice not in range(len(TEXTS)):
             print("Option",choice +1,"doesnt exist, terminating program...")
             break
         else:
@@ -116,7 +118,7 @@ while user:
             # NUMERIC STRINGS
             numericstrings = []
 
-            for i in splittedtext:
+            for i in nopuncttext:
                 if i.isnumeric():     
                     numericstrings.append(i)
 
