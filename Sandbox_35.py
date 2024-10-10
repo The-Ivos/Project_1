@@ -1,12 +1,43 @@
-#original list
-programming_languages = ["JavaScript", "Python", "Java", "C++"]
+animals = ["ahoj","lala","subu","jo","muzebyt"]
 
-#print original list
-print(programming_languages)
+animals2 = ["leg","prase","kun","ruka"]
 
-# remove the value 'JavaScript' from the list
-programming_languages.remove("JavaScript")
+newdict = {}
 
-#print updated list
-print(programming_languages)
+for i in animals:
+    newdict[len(i)] = 0
 
+dict_to_comp = list(newdict)
+
+for i in animals:
+    for j in dict_to_comp:
+        if len(i) == j:
+            print("there",i,j)
+            newdict[len(i)] += 1
+        else:
+            print("not there",i,j)
+
+print(dict_to_comp)
+
+stars = list(newdict.items())
+print(stars)
+
+for i,b in stars:
+    print(i,b * "*")
+
+
+
+print(newdict)
+
+
+
+
+
+
+
+
+
+
+
+
+#foePokemon.update({"HP" : int(foePokemon["HP"] - (a["first"][str(myPokemon["attacks"]["first"]).split(" ")[0].replace("{'","").replace("'","").replace(":","")]["power"])*(eff + critical))})
