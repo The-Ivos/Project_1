@@ -59,7 +59,7 @@ while user:
 
         # TEXT CHOICE DOESNT EXIST
         if choice not in range(3):
-            print("Option",choice,"doesnt exist, terminating program...")
+            print("Option",choice +1,"doesnt exist, terminating program...")
             break
         else:
             
