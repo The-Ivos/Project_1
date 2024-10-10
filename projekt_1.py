@@ -114,10 +114,18 @@ while user:
 
             for i in splittedtext:
                 if i.isnumeric():     
-                    print(i)
                     numericstrings.append(i)
 
             print("There are",len(numericstrings),"numeric strings.")
+
+            # NUM SUM
+            numstosum = []
+            for i in numericstrings:
+                numstosum.append(int(i))
+            summednums = sum(numstosum)
+            print("The sum of all the numbers:",summednums)
+
+                
 
     # WRONG PASSWORD
     elif user in users and password != users[user]:
