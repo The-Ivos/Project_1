@@ -43,23 +43,43 @@ punctuation = ".,!:"
 
 user = input("username: ")
 if user == "":
-    user = "anonymus"
+    user = "anonymouse"
 
 while user:
+    # USER AND PASS CORRECT
     if (password := input("password: ")) == users.get(user):
         print(oddelovac)
         print("Welcome to the app,",user)
         print("We have 3 texts to be analyzed.")
         print(oddelovac)
+        
+        # TEXT CHOICE
         choice = int(input("Enter a number btw. 1 and 3 to select: ")) -1
         print(oddelovac)
+
+        # TEXT CHOICE DOESNT EXIST
         if choice not in range(3):
             print("Option",choice,"doesnt exist, terminating program...")
             break
         else:
+            
+            # CHOSEN TEXT
             texttoex = TEXTS[choice]
             
+            # TEXT TO LIST
             splittedtext = texttoex.split()
+
+            # LIST TEXT WITHOUT ANY NUMBERS
+            total_numberlesstext = splittedtext.copy()
+            to_remove = set()
+            for i in splittedtext:
+                for j in i:
+                    if j.isnumeric():
+                        to_remove.add(i)
+                        remove_list = list(to_remove)
+            for i in range(len(remove_list)):
+                total_numberlesstext.remove(remove_list[i])
+
             # WORDCOUNT
             wordcount = len(splittedtext)
             print("There are", wordcount ,"words in the selected text.")
@@ -73,25 +93,38 @@ while user:
 
             # UPPERCASE WORDS
             uppercases = []
-            for i in splittedtext:
-                if i == i.upper() and not i.isnumeric():
+                        
+            for i in total_numberlesstext:
+                if i == i.upper():
                     uppercases.append(i)
+            
             print("There are",len(uppercases),"uppercase words.")
-                                                                   
-            print(uppercases)
 
             # LOWERCASE WORDS
             lowercases = []
-            for i in splittedtext:
-                if i == i.lower() and not i.isnumeric():
+                                    
+            for i in total_numberlesstext:
+                if i == i.lower():
                     lowercases.append(i)
-            print(splittedtext)
-            print(lowercases)
-            print("There are",len(lowercases),"lowercase words.")
+            
+            print("There are",len(lowercases),"lowercase words.")      
 
+            # NUMERIC STRINGS
+            numericstrings = []
+
+            for i in splittedtext:
+                if i.isnumeric():     
+                    print(i)
+                    numericstrings.append(i)
+
+            print("There are",len(numericstrings),"numeric strings.")
+
+    # WRONG PASSWORD
     elif user in users and password != users[user]:
         print("Wrong password, terminating the program...")  
         user = False  
+    
+    # UNREGISTERED USER
     else:
         print("Unregistered user, terminating the program...")
         user = False
