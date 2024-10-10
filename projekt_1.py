@@ -33,7 +33,9 @@ other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.''',
 '''Toto je zase muj UPPERCASE text navic, kterej si pak pekne smazu. Chce
-To ale pridat nejaky cisla. Jako treba 25. 98 nebo 539221'''
+To ale pridat nejaky cisla. Jako treba 25. 98 nebo 539221''','''A tady
+je 6282 dalsi texttik 12 IKLO Hoho
+''','''A jeste jeden, jakoze 1. Ne 2!''','''2627 119 118 23'''
 ]
 
 user = True
@@ -77,6 +79,7 @@ while user:
 
             # LIST TEXT WITHOUT ANY NUMBERS
             total_numberlesstext = splittedtext.copy()
+            remove_list = []
             to_remove = set()
             for i in splittedtext:
                 for j in i:
