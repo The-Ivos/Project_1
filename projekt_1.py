@@ -182,6 +182,8 @@ while user:
 
             print(pre_stars)
             print(max(pre_stars[1]))
+            print(pre_maxlength)
+            print(maxlength)
                 
 
     # WRONG PASSWORD
