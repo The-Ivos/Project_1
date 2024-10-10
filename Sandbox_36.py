@@ -1,9 +1,8 @@
-texttoex = "Nazdar vole, jak se vede? Je to doby, voe? Jasny, nazdar."
+text = "8, 5, 5, 12, 2, 9, 4, 11, 6, 3, 1, 1, 7, 4, 9, 1, 3, 6, 10, 1, 11, 1"
 
-text = "nazdar,"
+newlisttotext = text.replace(" ","")
+print(newlisttotext)
 
-nopuncttext = texttoex.replace(","," ").replace("."," ").replace("!"," ").replace(";"," ").replace(":"," ").replace("?"," ").split()
+tuplovanejlist = newlisttotext.split(",")
 
-print(nopuncttext)
-print(len(text))
-
+print(max(tuplovanejlist))

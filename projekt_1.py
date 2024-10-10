@@ -155,9 +155,15 @@ while user:
             pre_stars = list(stars_dict.items())
             pre_stars_big = list(stars_dict_big.items())
 
-            abeceda = []
+            # MAX LINE-LENGTH
             pre_maxlength = pre_stars + pre_stars_big
-            maxlength = max(pre_maxlength[1])
+            notyet_maxlength = []
+            for i,b in pre_maxlength:
+                notyet_maxlength.append(b)
+            maxlength = max(notyet_maxlength)
+            
+
+            abeceda = []
             for i,b in pre_stars:
                 adda = str((3 - len(str(i))) * " ") + str(i) + "|" + str(b * "*") + str(((maxlength - b) + 2)*" ") + "|" + str(b)
                 abeceda.append(adda)
@@ -179,11 +185,6 @@ while user:
 
             for i in sorted_abc_big:
                 print(str(i).replace("'","").replace(",","").strip("()"))
-
-            print(pre_stars)
-            print(max(pre_stars[1]))
-            print(pre_maxlength)
-            print(maxlength)
                 
 
     # WRONG PASSWORD
