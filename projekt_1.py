@@ -102,8 +102,24 @@ while user:
                     for i in forsplitted:
                         splittedtext.append(i)
 
+            # TEXT IN MASH STYLE WITH NO PUNCT
+            nopunct_splitted = splittedtext.copy()
+            for i in nopunct_splitted:
+                if i.endswith("."):
+                    splittedtext.remove(i)
+                    splittedtext.append(i.replace(".",""))
+                if i.endswith(","):
+                    splittedtext.remove(i)
+                    splittedtext.append(i.replace(",",""))
+                if i.endswith("!"):
+                    splittedtext.remove(i)
+                    splittedtext.append(i.replace("!",""))
+                if i.endswith("?"):
+                    splittedtext.remove(i)
+                    splittedtext.append(i.replace("?",""))    
+
             # TEXT WITHOUT PUNCTUATION
-            nopuncttext = texttoex.replace(","," ").replace("."," ").replace("!"," ").replace(";"," ").replace(":"," ").replace("?"," ").split()
+            # nopuncttext = texttoex.replace(","," ").replace("."," ").replace("!"," ").replace(";"," ").replace(":"," ").replace("?"," ").split()
 
             # LIST TEXT WITHOUT ANY NUMBERS
             total_numberlesstext = splittedtext.copy()
@@ -149,7 +165,7 @@ while user:
             # NUMERIC STRINGS
             numericstrings = []
 
-            for i in nopuncttext:
+            for i in splittedtext:
                 if i.isnumeric():     
                     numericstrings.append(i)
 
@@ -166,7 +182,7 @@ while user:
             stars_dict = {}
             stars_dict_big = {}
 
-            for i in nopuncttext:
+            for i in splittedtext:
                 if len(str(i)) < 10:
                     stars_dict[len(str(i))] = 0
                 else:
@@ -175,12 +191,12 @@ while user:
             dict_to_comp = list(stars_dict)
             dict_to_comp_big = list(stars_dict_big)
 
-            for i in nopuncttext:
+            for i in splittedtext:
                 for j in dict_to_comp:
                     if len(str(i)) == j:
                         stars_dict[len(str(i))] += 1
                     
-            for i in nopuncttext:
+            for i in splittedtext:
                 for j in dict_to_comp_big:
                     if len(str(i)) == j:
                         stars_dict_big[len(str(i))] += 1
@@ -207,6 +223,8 @@ while user:
 
             sorted_abc = sorted(abeceda)
             sorted_abc_big = sorted(abeceda_big)
+
+            print(splittedtext)
 
             # STAR TABLE
             print(oddelovac)
