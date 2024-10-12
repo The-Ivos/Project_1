@@ -8,7 +8,7 @@ discord: theivos_63282
 # TEXTS
 
 TEXTS = ['''
-Situated about 10 miles west of Kemmerer,
+Situated about 10 miles a.d.i.d.a.s. west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
 some 1000 feet above Twin Creek Valley
@@ -37,7 +37,7 @@ garpike and stingray are also present.''',
 To ale pridat nejaky cisla. Jako treba 25. 98 nebo 539221''','''A tady
 je dalsi texttik IKLO Hoho
 ''','''A jeste jeden, jakoze 1. Ne 2!''','''2627 119 118 23, S50.''',
-'''Vcera jsem se dival na 37.dil M.A.S.H 4077, kde byl tank T50 a T30.Byl
+'''Vcera jsem se dival na 37.dil M.A.S.H. 4077, kde byl tank T50 a T30.Byl
 to vazne zajimavy dil. Videls ho taky?'''
 ]
 
@@ -96,25 +96,31 @@ while user:
                
                 if (len(dotssum) >= 2 and len(uppersum) >= 2) or i.endswith("."):
                     addinstnt_list.append(1)
+                    
                 else:
                     forsplitted = i.split(".")
                     splittedtext.remove(i)
                     for i in forsplitted:
                         splittedtext.append(i)
+                     
 
             # TEXT IN MASH STYLE WITH NO PUNCT
             nopunct_splitted = splittedtext.copy()
             for i in nopunct_splitted:
-                if i.endswith("."):
+                dotssum = []
+                for j in i:
+                    if j == ".":
+                        dotssum.append(j)                
+                if i.endswith(".") and len(dotssum) < 2:
                     splittedtext.remove(i)
                     splittedtext.append(i.replace(".",""))
-                if i.endswith(","):
+                if i.endswith(",") and len(dotssum) < 2:
                     splittedtext.remove(i)
                     splittedtext.append(i.replace(",",""))
-                if i.endswith("!"):
+                if i.endswith("!") and len(dotssum) < 2:
                     splittedtext.remove(i)
                     splittedtext.append(i.replace("!",""))
-                if i.endswith("?"):
+                if i.endswith("?") and len(dotssum) < 2:
                     splittedtext.remove(i)
                     splittedtext.append(i.replace("?",""))    
 
