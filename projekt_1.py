@@ -84,6 +84,7 @@ while user:
                 if i[0] == i[0].upper() and "." in i:
                     pre_mashstyle.append(i)
 
+            addinstnt_list = []
             for i in pre_mashstyle:
                 dotssum = []
                 uppersum = []
@@ -92,12 +93,9 @@ while user:
                         dotssum.append(j)
                     elif j == j.upper():
                         uppersum.append(j)
-                print(dotssum)
-                print(uppersum)
                
                 if (len(dotssum) >= 2 and len(uppersum) >= 2) or i.endswith("."):
-                    #print(i)
-                    #addinstnt_list.append(1)
+                    addinstnt_list.append(1)
                 else:
                     forsplitted = i.split(".")
                     splittedtext.remove(i)
