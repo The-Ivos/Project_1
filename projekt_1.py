@@ -3,8 +3,9 @@ projekt_1.py: první projekt do Engeto Online Python Akademie
 
 author: Ivo Srot
 email: srot.ivo@gmail.com
-discord: the Ivos
+discord: theivos_63282
 """
+# TEXTS
 
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer,
@@ -34,20 +35,24 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.''',
 '''Toto je zase muj UPPERCASE text navic, kterej si pak pekne smazu. Chce
 To ale pridat nejaky cisla. Jako treba 25. 98 nebo 539221''','''A tady
-je 6282 dalsi texttik 12 IKLO Hoho
-''','''A jeste jeden, jakoze 1. Ne 2!''','''2627 119 118 23'''
+je dalsi texttik IKLO Hoho
+''','''A jeste jeden, jakoze 1. Ne 2!''','''2627 119 118 23, S50.''',
+'''Vcera jsem se dival na 37.dil M.A.S.H 4077, kde byl tank T50 a T30.Byl
+to vazne zajimavy dil. Videls ho taky?'''
 ]
+
+# STARTING VARIABLES
 
 user = True
 
 users = {"bob":"123", "ann":"pass123","mike":"password123","liz":"pass123"}
 oddelovac = "-" * 40
 
-punctuation = ".,!:"
-
 user = input("username: ")
 if user == "":
     user = "anonymouse"
+
+    # PROGRAM
 
 while user:
     # USER AND PASS CORRECT
@@ -73,9 +78,34 @@ while user:
             # TEXT TO LIST
             splittedtext = texttoex.split()
 
+            # TEXT IN MASH STYLE
+            pre_mashstyle = []
+            for i in splittedtext:
+                if i[0] == i[0].upper() and "." in i:
+                    pre_mashstyle.append(i)
+
+            for i in pre_mashstyle:
+                dotssum = []
+                uppersum = []
+                for j in i:
+                    if j == ".":
+                        dotssum.append(j)
+                    elif j == j.upper():
+                        uppersum.append(j)
+                print(dotssum)
+                print(uppersum)
+               
+                if (len(dotssum) >= 2 and len(uppersum) >= 2) or i.endswith("."):
+                    #print(i)
+                    #addinstnt_list.append(1)
+                else:
+                    forsplitted = i.split(".")
+                    splittedtext.remove(i)
+                    for i in forsplitted:
+                        splittedtext.append(i)
+
             # TEXT WITHOUT PUNCTUATION
             nopuncttext = texttoex.replace(","," ").replace("."," ").replace("!"," ").replace(";"," ").replace(":"," ").replace("?"," ").split()
-
 
             # LIST TEXT WITHOUT ANY NUMBERS
             total_numberlesstext = splittedtext.copy()
@@ -167,7 +197,6 @@ while user:
                 notyet_maxlength.append(b)
             maxlength = max(notyet_maxlength)
             
-
             abeceda = []
             for i,b in pre_stars:
                 adda = str((3 - len(str(i))) * " ") + str(i) + "|" + str(b * "*") + str(((maxlength - b) + 2)*" ") + "|" + str(b)
@@ -181,6 +210,7 @@ while user:
             sorted_abc = sorted(abeceda)
             sorted_abc_big = sorted(abeceda_big)
 
+            # STAR TABLE
             print(oddelovac)
             print("LEN|  OCCURENCES  |NR.")
             print(oddelovac)

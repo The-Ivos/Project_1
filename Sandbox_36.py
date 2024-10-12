@@ -1,3 +1,7 @@
-text = "M-A-S-H"
+slovo = "zdar.Kundo.vole"
 
-print(text.isalpha())
+slovo2 = slovo.split(".")
+
+print(slovo2)
+    
+
