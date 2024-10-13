@@ -71,14 +71,14 @@ while user:
             print("Option",choice +1,"doesnt exist, terminating program...")
             break
         else:
-            
+         
             # CHOSEN TEXT
             texttoex = TEXTS[choice]
             
             # TEXT TO LIST
             splittedtext = texttoex.split()
 
-            # TEXT IN MASH STYLE
+            # TEXT IN MASH STYLE = Cases like: "M.A.S.H", "37.episode", "I did.But you" and such
             pre_mashstyle = []
             for i in splittedtext:
                 for j in i:
@@ -107,7 +107,6 @@ while user:
                         splittedtext.append(i)
                                  
             # TEXT IN MASH STYLE WITH NO PUNCT
-            print(splittedtext)
             nopunct_splitted = splittedtext.copy()
             for i in nopunct_splitted:
                 dotssum = []
@@ -126,10 +125,7 @@ while user:
                 if i.endswith("?"):
                     splittedtext.remove(i)
                     splittedtext.append(i.replace("?",""))    
-
-            # TEXT WITHOUT PUNCTUATION
-            # nopuncttext = texttoex.replace(","," ").replace("."," ").replace("!"," ").replace(";"," ").replace(":"," ").replace("?"," ").split()
-
+            
             # LIST TEXT WITHOUT ANY NUMBERS
             total_numberlesstext = splittedtext.copy()
             remove_list = []
@@ -232,8 +228,6 @@ while user:
 
             sorted_abc = sorted(abeceda)
             sorted_abc_big = sorted(abeceda_big)
-
-            print(splittedtext)
 
             # STAR TABLE
             print(oddelovac)
