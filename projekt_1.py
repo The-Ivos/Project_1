@@ -8,7 +8,7 @@ discord: theivos_63282
 # TEXTS
 
 TEXTS = ['''
-Situated about 10 miles a.d.i.d.a.s. west of Kemmerer,
+Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
 some 1000 feet above Twin Creek Valley
@@ -81,9 +81,14 @@ while user:
             # TEXT IN MASH STYLE
             pre_mashstyle = []
             for i in splittedtext:
-                if i[0] == i[0].upper() and "." in i:
-                    pre_mashstyle.append(i)
-
+                for j in i:
+                    if j == j.upper() and "." in j:
+                        pre_mashstyle.append(i)
+            
+            toset = set(pre_mashstyle)
+            pre_mashstyle = list(toset)
+            
+            forsplitted = []
             addinstnt_list = []
             for i in pre_mashstyle:
                 dotssum = []
@@ -93,15 +98,15 @@ while user:
                         dotssum.append(j)
                     elif j == j.upper():
                         uppersum.append(j)
-               
-                if (len(dotssum) >= 2 and len(uppersum) >= 2) or i.endswith("."):
-                    addinstnt_list.append(1)
-                    
+                if len(dotssum) >= 2 or i.endswith("."):
+                    addinstnt_list.append(i)
                 else:
                     forsplitted = i.split(".")
                     splittedtext.remove(i)
                     for i in forsplitted:
                         splittedtext.append(i)
+                print(forsplitted)
+                print(addinstnt_list)
                      
 
             # TEXT IN MASH STYLE WITH NO PUNCT
