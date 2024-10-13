@@ -37,7 +37,7 @@ garpike and stingray are also present.''',
 To ale pridat nejaky cisla. Jako treba 25. 98 nebo 539221''','''A tady
 je dalsi texttik IKLO Hoho
 ''','''A jeste jeden, jakoze 1. Ne 2!''','''2627 119 118 23, S50.''',
-'''Vcera jsem se dival na 37.dil M.A.S.H. 4077, kde byl tank T50 a T30.Byl
+'''Vcera jsem se dival na 37.dil M.A.S.H 4077, kde byl tank T50 a T30.Byl
 to vazne zajimavy dil. Videls ho taky?'''
 ]
 
