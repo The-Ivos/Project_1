@@ -2,42 +2,43 @@ def game():
     player_1_turn()
         
 def game_check(a):
+    congrats = "Congratulations, Player",a,"WON!"
     rounds.append("round")
     if top_line_values[0] == a and top_line_values[1] == a and top_line_values[2] == a:
         show_table()
-        print("Player",a,"wins!")
+        print(congrats)
         exit()
     elif middle_line_values[0] == a and middle_line_values[1] == a and middle_line_values[2] == a:
         show_table()
-        print("Player",a,"wins!")
+        print(congrats)
         exit()
     elif bottom_line_values[0] == a and bottom_line_values[1] == a and bottom_line_values[2] == a:
         show_table()
-        print("Player",a,"wins!")
+        print(congrats)
         exit()
     elif top_line_values[0] == a and middle_line_values[0] == a and bottom_line_values[0] == a:
         show_table()
-        print("Player",a,"wins!")
+        print(congrats)
         exit()
     elif top_line_values[1] == a and middle_line_values[1] == a and bottom_line_values[1] == a:
         show_table()
-        print("Player",a,"wins!")
+        print(congrats)
         exit()
     elif top_line_values[2] == a and middle_line_values[2] == a and bottom_line_values[2] == a:
         show_table()
-        print("Player",a,"wins!")
+        print(congrats)
         exit()
     elif top_line_values[0] == a and middle_line_values[1] == a and bottom_line_values[2] == a:
         show_table()
-        print("Player",a,"wins!")
+        print(congrats)
         exit()
     elif top_line_values[2] == a and middle_line_values[1] == a and bottom_line_values[0] == a:
         show_table()
-        print("Congratulations, Player",a,"WON!")
+        print(congrats)
         exit()
     elif len(rounds) == 9:
         show_table()
-        print("It's a draw!")
+        print("It's a DRAW!")
         exit()
 
 
