@@ -152,7 +152,7 @@ number = vytvor_nahodne_cislo()
 oddelovac = "-"*60
 
 # UVODNI HLASKA
-print("Hi There!")
+print("Hi there!")
 print(oddelovac)
 print("""I've generated a random 4 digit number for you.
 Let's play a bulls and cows game.""")
