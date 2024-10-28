@@ -33,7 +33,7 @@ def game_check(a):
         exit()
     elif top_line_values[2] == a and middle_line_values[1] == a and bottom_line_values[0] == a:
         show_table()
-        print("Player",a,"wins!")
+        print("Congratulations, Player",a,"WON!")
         exit()
     elif len(rounds) == 9:
         show_table()
