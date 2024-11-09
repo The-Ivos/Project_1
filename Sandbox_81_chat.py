@@ -72,13 +72,9 @@ def register_user(x):
         if x == "":
             wrong_username = f"Username cannot be empty. Choose your username or 'CANCEL' for cancel:"
         elif x not in reg_users.keys():
-            print(f"{x} not there")
-            input("Press any key to cont")
             break
         else:
             wrong_username = f"Username {x} already exists! Choose another username or 'CANCEL' for cancel:"
-            print(f"{x} there")
-            input("Press any key to cont")
             x = ""
     return interlogin(x,"nopass")
 
