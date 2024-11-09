@@ -7,7 +7,7 @@ def chatroom(x,y):
 
     if "chat.txt" not in os.listdir():
         chatfile = open("chat.txt","w",encoding="utf-8")
-        chatfile.write(f"BEGINNING OF THE CHAT HISTORY\n{time.ctime()}\n")
+        chatfile.write(f"BEGINNING OF THE CHAT HISTORY\n")
         chatfile.close()
 
     with open("chat.txt","a+",encoding="utf-8") as file:
@@ -51,24 +51,29 @@ Start with login or register new user:
           
           1) LOGIN
           2) REGISTER NEW USER
-
-          Q) QUIT
+          
           R) RESET CHAT
-
+          Q) QUIT
+          
 ---------------------------------------
 TIP: To exit in chat use "exit".
 ---------------------------------------
 """)
     choice = input("Choose login(1),register new user(2) or (Q)uit:\n")
 
-    while choice.lower() not in "12q":
-        print("Please choose: '1', '2' or 'Q':")
+    while choice.lower() not in "12qr":
+        print("Please choose: '1', '2', 'R' or 'Q':")
         choice = input("")
 
     if choice == "1":
         return login()
     elif choice == "2":
         return register_user("")
+    elif choice == "r":
+        chatfile = open("chat.txt","w",encoding="utf-8")
+        chatfile.write(f"BEGINNING OF THE CHAT HISTORY\n")
+        chatfile.close()
+        return main()
     else:
         os.system("cls")
         print("See ya next time!")
