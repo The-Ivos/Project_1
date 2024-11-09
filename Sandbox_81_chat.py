@@ -35,14 +35,22 @@ def login():
     os.system("cls")
     with open("users.json","r",encoding="utf-8") as file:
         content = json.load(file)
-
+        print(f"Choose your username or 'CANCEL' for cancel:")
         username = input("username: ")
+
+        if username.lower() == "cancel":
+            return main()
 
         while username not in content:
             new_reg = input(f"User not registered. Do you want to register new user {username}?\n")
 
+            while new_reg.lower() not in ("yes","no"):
+                new_reg = input("Please answer only 'yes' or 'no':\n")
+
             if new_reg.lower() == "yes":
-                register_user(username)
+                return register_user(username)
+            else:
+                return main()
 
 
 
@@ -111,7 +119,7 @@ Your password is: {y}
 """)
         input("Press any key to continue to the home screen...")
 
-        return main()
+    return main()
 
 
 main()    

@@ -1,3 +1,11 @@
+"""
+projekt_2_2.py: druhý druhý projekt do Engeto Online Python Akademie
+
+author: Ivo Srot
+email: srot.ivo@gmail.com
+discord: theivos_63282
+"""
+
 import os
 
 # ZACATEK HRY - DEFINUJE KDO BUDE ZACINAT

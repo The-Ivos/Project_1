@@ -1,3 +1,3 @@
-from projekt_2 import game
+import projekt_2_forimp
 
-game()
+projekt_2_forimp.game()
