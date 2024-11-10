@@ -167,7 +167,7 @@ def login():
             while new_reg.lower() not in ("yes","no","y","n"):
                 new_reg = input("Please answer only 'yes' or 'no':\n")
 
-            if new_reg.lower() == "yes" or new_reg.lower == "y":
+            if new_reg.lower() == "yes" or new_reg.lower() == "y":
                 return register_user(username)
             else:
                 return main()
@@ -240,5 +240,5 @@ Your password is: {y}
 
 main()    
 
-# register_user()
+
 
