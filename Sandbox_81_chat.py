@@ -1,6 +1,51 @@
 import json
 import os
 import time
+import shutil
+
+def reset_chat():
+    os.system("cls")
+    if "chat.txt" not in os.listdir():
+        input("There is no chat yet to be reset.\n\nPress any key to continue to main screen...")
+        return main()
+    backup = input(f"Do you want to make a copy of the chat file before reset? (Yes/No):\n")
+    while backup.lower() not in ["y","n","yes","no"]:
+        backup = input("You have to answer only 'yes' or 'no': ")
+    
+    if backup.lower() == "yes" or backup.lower() == "y":
+        arch_chat = f"chat_history/chat_history_{(time.ctime().replace(" ","_").replace(":","_"))[4:]}.txt"
+        if "chat_history" in os.listdir():
+            shutil.copy("chat.txt",arch_chat)
+            
+        else:
+            os.mkdir("chat_history")
+            shutil.copy("chat.txt",arch_chat)
+        os.system("cls")
+        print(f"Chat history saved in '{arch_chat}'.")
+
+    print("")
+
+    reset = input("Do you really want to reset chat? (Yes/No): ")
+
+    while reset.lower() not in ["y","n","yes","no"]:
+        reset = input("You have to answer only 'yes' or 'no': ")
+
+    if reset.lower() == "yes" or reset.lower() == "y":
+        os.system("cls")
+        chatfile = open("chat.txt","w",encoding="utf-8")
+        chatfile.write(f"BEGINNING OF THE CHAT HISTORY\n")
+        chatfile.close()
+        print("Chat reset!")
+        print("")
+        input("Press any key to continue to main screen...")
+    else:
+        print("Chat NOT reset!")
+        print("")
+        input("Press any key to continue to main screen...")
+
+    return main()
+
+
 
 def chatroom(x,y):
     os.system("cls")
@@ -11,21 +56,27 @@ def chatroom(x,y):
         chatfile.close()
 
     with open("chat.txt","a+",encoding="utf-8") as file:
-        file.seek(0,2)
         file.write(f"\n\n{x} joined the chat on {time.ctime()}")
         file.seek(0)
                 
         while True:
             file.seek(0)
+
             content = file.read()
+            os.system("cls")
             print(content)
+
             print("\n\n" + str(50*"-"))
+
             message = input(f"{x}: ")
+
             if message.startswith("&"):
                 file.write(f"\n\n{x} tried some magic in VSC on {time.ctime()}")
-            
+                os.system("cls")
+
             elif message == "":
-                message = "..."
+                file.write(f"\n\n{x} ...")
+                os.system("cls")
 
             elif message.lower() in ["quit","cancel","exit"] :
                 file.write(f"\n\n{x} left the chat on {time.ctime()}")
@@ -41,6 +92,11 @@ def chatroom(x,y):
 
 
 def main():
+    if "users.json" not in os.listdir():
+        usersfile = open("users.json","w",encoding="utf-8")
+        usersfile.write("{}")
+        usersfile.close()
+
     os.system("cls")
     print(f"""
   ================================
@@ -70,10 +126,7 @@ TIP: To exit in chat use "exit".
     elif choice == "2":
         return register_user("")
     elif choice == "r":
-        chatfile = open("chat.txt","w",encoding="utf-8")
-        chatfile.write(f"BEGINNING OF THE CHAT HISTORY\n")
-        chatfile.close()
-        return main()
+        return(reset_chat())
     else:
         os.system("cls")
         print("See ya next time!")
