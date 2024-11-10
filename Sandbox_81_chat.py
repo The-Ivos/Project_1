@@ -164,10 +164,10 @@ def login():
         while username not in content:
             new_reg = input(f"User not registered. Do you want to register new user {username}? (Yes/No)\n")
 
-            while new_reg.lower() not in ("yes","no"):
+            while new_reg.lower() not in ("yes","no","y","n"):
                 new_reg = input("Please answer only 'yes' or 'no':\n")
 
-            if new_reg.lower() == "yes":
+            if new_reg.lower() == "yes" or new_reg.lower == "y":
                 return register_user(username)
             else:
                 return main()
