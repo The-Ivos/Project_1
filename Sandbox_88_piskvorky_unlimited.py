@@ -299,6 +299,10 @@ def check_mark_x(coor_x,diagonal,vertical):
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_x} (X) have won!")
+      elif len(occupied) == (diagonal*vertical):
+            os.system("cls")
+            print("".join(map(str,list(board.values()))))
+            return print("It's a draw!")
       else:
             
             return mark_o(diagonal,vertical)
@@ -463,6 +467,7 @@ def check_mark_o(coor_o,diagonal,vertical):
       # print(xlineu_check)
       # print(xlines_check)
 
+     
       if "O"*rule in oline_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
@@ -479,6 +484,10 @@ def check_mark_o(coor_o,diagonal,vertical):
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_o} (O) have won!")
+      elif len(occupied) == (diagonal*vertical):
+            os.system("cls")
+            print("".join(map(str,list(board.values()))))
+            return print("It's a draw!")
       else:
             
             return mark_x(diagonal,vertical)
