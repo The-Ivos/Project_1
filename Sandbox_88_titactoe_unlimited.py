@@ -2,16 +2,16 @@ import os
 
 def main():
      
-     diagonal = input("Choose the horizontal length of the board, please: ")
+     diagonal = input(f"Choose the horizontal length of the board, please (min {rule} / max 26): ")
      
-     while not diagonal.isdigit() or int(diagonal) < 5 or int(diagonal) > 26:
-               diagonal = input("Length has to be a number between 5-26.\nTry again, please: ")
+     while not diagonal.isdigit() or int(diagonal) < rule or int(diagonal) > 26:
+               diagonal = input(f"Length has to be a number between {rule}-26.\nTry again, please: ")
      diagonal = int(diagonal)
    
-     vertical = input("Now choose the vertical length of the board, please: ")
+     vertical = input(f"Now choose the vertical length of the board, please (min {rule} / max 26): ")
 
-     while not vertical.isdigit() or int(vertical) < 5 or int(vertical) > 26:
-               vertical = input("Length has to be a number between 5-26.\nTry again, please: ")
+     while not vertical.isdigit() or int(vertical) < rule or int(vertical) > 26:
+               vertical = input(f"Length has to be a number between {rule}-26.\nTry again, please: ")
      vertical = int(vertical)
           
      return create_board(int(diagonal),int(vertical))
@@ -283,19 +283,19 @@ def check_mark_x(coor_x,diagonal,vertical):
       # print(xlineu_check)
       # print(xlines_check)
 
-      if "XXXXX" in xline_check:
+      if "X"*rule in xline_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_x} (X) have won!")
-      elif "XXXXX" in xliner_check:
+      elif "X"*rule in xliner_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_x} (X) have won!")
-      elif "XXXXX" in xlineu_check:
+      elif "X"*rule in xlineu_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_x} (X) have won!")
-      elif "XXXXX" in xlines_check:
+      elif "X"*rule in xlines_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_x} (X) have won!")
@@ -463,19 +463,19 @@ def check_mark_o(coor_o,diagonal,vertical):
       # print(xlineu_check)
       # print(xlines_check)
 
-      if "OOOOO" in oline_check:
+      if "O"*rule in oline_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_o} (O) have won!")
-      elif "OOOOO" in oliner_check:
+      elif "O"*rule in oliner_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_o} (O) have won!")
-      elif "OOOOO" in olineu_check:
+      elif "O"*rule in olineu_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_o} (O) have won!")
-      elif "OOOOO" in olines_check:
+      elif "O"*rule in olines_check:
             os.system("cls")
             print("".join(map(str,list(board.values()))))
             return print(f"Player {player_o} (O) have won!")
@@ -538,6 +538,25 @@ print("Welcome to the game of PISKVORKY!\n")
 
 player_x = input("Choose name for player X: ")
 player_o = input("Choose name for player O: ")
+
+rule = ""
+
+while not rule.isdigit():
+      rule = input("Please set the number of symbols which has to be in line to win the game: (min 3, max 9): ")
+
+rule = int(rule)
+
+while rule < 3 or rule > 9:
+      rule = input("The number has to be between 3 and 9: ")
+      while not rule.isdigit():
+            rule = input("The number has to be between 3 and 9: ")
+      rule = int(rule)
+
+print(rule)
+
+input("Press...")
+
+      
 
 
 main()
