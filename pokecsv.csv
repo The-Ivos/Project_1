@@ -1,0 +1,8 @@
+name,type,attacks,HP,status,speed,confused
+ABRA,psychic,psychic,25,OK,5,NO
+BULBASAUR,grass,sleep powder,29,OK,1,NO
+SQUIRTLE,water,skull bash,25,OK,2,NO
+PIDGEY,flying,whirlwind,21,OK,5,NO
+PIKACHU,electric,toxic,24,OK,3,NO
+CHARMANDER,fire,flame wheel,28,OK,4,NO
+SANDSHREW,ground,earthquake,26,OK,4,NO

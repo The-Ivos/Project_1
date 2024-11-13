@@ -1,0 +1,12 @@
+{"Casillas": {"jersey":1, "nationality":"Spain","full name":"Iker Casillas"},
+"Salgado": {"jersey":2, "nationality":"Spain", "full name":"Michel Salgado"},
+"Carlos": {"jersey":3, "nationality":"Brasil", "full name":"Roberto Carlos"},
+"Hierro": {"jersey":4, "nationality":"Spain", "full name":"Fernando Hierro"},
+"Helguera": {"jersey":6, "nationality":"Spain", "full name":"Ivan Helguera"},
+"Zidane": {"jersey":5, "nationality":"France", "full name":"Zinedine Zidane"},
+"Figo": {"jersey":10, "nationality":"Portugal", "full name":"Luis Figo"},
+"Makelele": {"jersey":24, "nationality":"France", "full name":"Claude Makelele"},
+"Guti": {"jersey":14, "nationality":"Spain", "full name":"Jose Maria Gutierrez"},
+"Raul": {"jersey":7, "nationality":"Spain", "full name":"Raul Gonzales Blanco"},
+"Morientes": {"jersey":9, "nationality":"Spain", "full name":"Fernando Morientes"}
+}

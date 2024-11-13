@@ -491,49 +491,7 @@ def check_mark_o(coor_o,diagonal,vertical):
       else:
             
             return mark_x(diagonal,vertical)
-      
-# def check_mark_o(coor_o,diagonal,vertical):
-#       os.system("cls")
-#       if (coor_o+1) in occupied_o and (coor_o+2) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o-1) in occupied_o and (coor_o-2) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o-1) in occupied_o and (coor_o+1) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o+(diagonal+1)) in occupied_o and (coor_o+((diagonal+1))*2) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o+(diagonal+1)) in occupied_o and (coor_o-((diagonal+1))) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o-(diagonal+1)) in occupied_o and (coor_o-((diagonal+1))*2) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o+(diagonal+2)) in occupied_o and (coor_o+((diagonal+2))*2) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o-(diagonal+2)) in occupied_o and (coor_o-((diagonal+2))*2) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o-(diagonal+2)) in occupied_o and (coor_o+((diagonal+2))) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o+(diagonal)) in occupied_o and (coor_o+((diagonal))*2) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o-(diagonal)) in occupied_o and (coor_o-((diagonal))*2) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       elif (coor_o-(diagonal)) in occupied_o and (coor_o+((diagonal))) in occupied_o:
-#             print("".join(map(str,list(board.values()))))
-#             return print(f"Player {player_o} (O) have won!")
-#       else:
-            
-#             return mark_x(diagonal,vertical)
-            
+           
 os.system("cls")
 
 board = {0:f"\n"}
@@ -543,7 +501,7 @@ occupied_o = []
 
 
 
-print("Welcome to the game of PISKVORKY!\n")
+print("Welcome to the game of PISKVORKY UNLIMITED!\n")
 
 player_x = input("Choose name for player X: ")
 player_o = input("Choose name for player O: ")
@@ -561,16 +519,9 @@ while rule < 3 or rule > 9:
             rule = input("The number has to be between 3 and 9: ")
       rule = int(rule)
 
-print(rule)
-
-input("Press...")
-
-      
-
-
 main()
 
-# print(occupied)
+
 
 
 
