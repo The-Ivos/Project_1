@@ -80,9 +80,17 @@ def get_results(list_of_locs):
             #     loc_name = (soup.select_one("#publikace > h3:nth-child(3)").getText()).strip()
             # # ZBYTEK OBCI
             # else:
-            loc_name = (soup.select_one("#publikace > h3:nth-child(4)").getText()).strip()
-            loc_name = (loc_name[loc_name.find(delimiter_name) + len(delimiter_name):]).split()
-            loc_name = loc_name[1]
+            pre_loc_name = (soup.select_one("#publikace > h3:nth-child(4)").getText()).strip()
+            pre_loc_name = pre_loc_name[pre_loc_name.find(delimiter_name) + len(delimiter_name):]
+            loc_name = ""
+            for i in pre_loc_name:
+                if i.isdigit():
+                    continue
+                else:
+                    loc_name += i
+            loc_name = loc_name.strip()
+
+
 
         else:
             delimiter_name = "Obec: "
